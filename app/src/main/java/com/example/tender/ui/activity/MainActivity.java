@@ -1,6 +1,5 @@
 package com.example.tender.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setItemIconTintList(null);
 
         toolbar = findViewById(R.id.main_toolbar);
+
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.matches));
 
@@ -68,11 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-    }
-
-    public void goToUserPref() {
-
     }
 
 }

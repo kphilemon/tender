@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:background="@drawable/rounded_bg"
         android:id="@+id/friends_go_btn"
+        android:background="@drawable/rounded_bg"
         android:text="@string/start_swiping"
         android:textColor="@color/white"
         android:translationZ="@dimen/margin_5"
