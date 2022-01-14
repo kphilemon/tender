@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
         <activity
-            android:name=".ui.activity.UserPreferenceActivity"
-            android:exported="true" />
-        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
