@@ -1,3 +1,47 @@
 <resources>
-    <string name="app_name">tender</string>
+    <string name="app_name">Tender</string>
+    <string name="continue_with_google">Continue with Google</string>
+
+    <string name="welcome">Welcome</string>
+    <string name="sign_up_text1">To begin, pick your username. Your friends will use this username to find and add you.</string>
+    <string name="sign_up_text2">Pick wisely because once you get a name, you can’t change it.</string>
+    <string name="error_username_taken">Sorry, this username is taken. Try another.</string>
+    <string name="success_username_valid">Great name! It’s not taken, so it’s all yours.</string>
+
+    <string name="matches">Matches</string>
+    <string name="active">Active</string>
+    <string name="completed">Completed</string>
+    <string name="start_matching">Start Matching</string>
+    <string name="friends">Friends</string>
+    <string name="all">All</string>
+    <string name="requests">Requests</string>
+
+    <string name="select_friends">Select friends</string>
+    <string name="unfriend">Unfriend</string>
+    <string name="give_a_name">Give it a name</string>
+    <string name="hint_lunch">Example: Lunch</string>
+    <string name="search_username">Search username</string>
+
+    <string name="mark_complete">Mark as completed</string>
+
+    <string name="display_name">Display name</string>
+    <string name="about_you">About you</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">Log out</string>
+    <string name="delete_account">Delete account</string>
+
+
+
+
+
+
+
+
+
+
+    <string name="start">Start</string>
+    <string name="start_swiping">Start Swiping!</string>
+    <string name="next">Next</string>
+    <string name="click">Click</string>
+    <string name="confirm">Confirm</string>
 </resources>
