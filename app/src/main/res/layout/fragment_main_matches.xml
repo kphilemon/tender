@@ -7,7 +7,7 @@
     tools:context=".ui.fragments.MainMatchesFragment">
 
         <TextView
-            android:id="@+id/welcome_matches_frag_tv"
+            android:id="@+id/frag_matches_welcome_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/source_sans_pro"
@@ -20,7 +20,7 @@
 
         <Button
             android:background="@drawable/rounded_bg"
-            android:id="@+id/main_go_btn"
+            android:id="@+id/frag_matches_go_btn"
             android:text="@string/start_matching"
             android:textColor="@color/white"
             android:translationZ="@dimen/margin_5"
@@ -30,6 +30,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcome_matches_frag_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/frag_matches_welcome_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

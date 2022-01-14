@@ -43,6 +43,7 @@
             android:id="@+id/main_bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10"
             app:menu="@menu/main_bottom_nav_menu"
             android:background="@color/white"
             app:itemTextColor="@color/custom_colour_navigation"
