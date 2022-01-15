@@ -19,6 +19,7 @@
 
     <!-- For padding purposes -->
     <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_90">90dp</dimen>
     <dimen name="margin_100">100dp</dimen>
     <dimen name="margin_120">120dp</dimen>
     <dimen name="margin_130">130dp</dimen>
@@ -39,6 +40,7 @@
     <dimen name="text_16sp">16sp</dimen>
     <dimen name="text_18sp">18sp</dimen>
     <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
     <dimen name="text_25sp">25sp</dimen>
     <dimen name="text_30sp">30sp</dimen>
     <dimen name="text_40sp">40sp</dimen>
