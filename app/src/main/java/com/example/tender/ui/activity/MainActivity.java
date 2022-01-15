@@ -29,29 +29,30 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.main_bottom_nav);
         bottomNavigationView.setItemIconTintList(null);
 
-        toolbar = findViewById(R.id.main_toolbar);
-
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.matches));
+//        toolbar = findViewById(R.id.main_toolbar);
+//
+//        setSupportActionBar(toolbar);
+//        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.matches));
 
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
+        viewPager.setUserInputEnabled(false);
 
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                switch (position) {
-                    case 0:
-                        bottomNavigationView.getMenu().findItem(R.id.main_matches_nav).setChecked(true);
-                        break;
-                    case 1:
-                        bottomNavigationView.getMenu().findItem(R.id.main_friends_nav).setChecked(true);
-                        break;
-                }
-            }
-        });
+//        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//            @Override
+//            public void onPageSelected(int position) {
+//                super.onPageSelected(position);
+//                switch (position) {
+//                    case 0:
+//                        bottomNavigationView.getMenu().findItem(R.id.main_matches_nav).setChecked(true);
+//                        break;
+//                    case 1:
+//                        bottomNavigationView.getMenu().findItem(R.id.main_friends_nav).setChecked(true);
+//                        break;
+//                }
+//            }
+//        });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

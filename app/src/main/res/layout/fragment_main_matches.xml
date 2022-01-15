@@ -1,35 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.MainMatchesFragment">
 
-        <TextView
-            android:id="@+id/frag_matches_welcome_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/source_sans_pro"
-            android:textSize="@dimen/text_20sp"
-            android:text="@string/welcome"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/matches_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <Button
-            android:background="@drawable/rounded_bg"
-            android:id="@+id/frag_matches_go_btn"
-            android:text="@string/start_matching"
-            android:textColor="@color/white"
-            android:translationZ="@dimen/margin_5"
-            android:layout_width="@dimen/margin_300"
-            android:fontFamily="@font/source_sans_pro"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frag_matches_welcome_tv" />
+        <include
+            android:id="@+id/frag_matches_toolbar"
+            layout="@layout/toolbar_with_actions" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/frag_matches_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/frag_matches_toolbar"
+            android:background="@color/white"
+            app:tabBackground="@drawable/tab_background"
+            app:tabIndicator="@android:color/transparent"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabRippleColor="@null" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!--    <include-->
+    <!--        android:id="@+id/frag_matches_toolbar"-->
+    <!--        layout="@layout/toolbar_with_actions" />-->
+
+    <!--    <com.google.android.material.tabs.TabLayout-->
+    <!--        android:id="@+id/frag_matches_tab_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/frag_matches_toolbar"-->
+    <!--        app:tabBackground="@drawable/tab_background"-->
+    <!--        app:tabIndicator="@android:color/transparent"-->
+    <!--        app:tabIndicatorAnimationMode="elastic"-->
+    <!--        app:tabRippleColor="@null" />-->
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/frag_matches_view_pager"
+        style="@style/MainCustomTabTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/matches_app_bar" />
+
+
+    <Button
+        android:id="@+id/frag_matches_go_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:layout_marginBottom="@dimen/margin_24"
+        android:background="@drawable/rounded_bg"
+        android:fontFamily="@font/source_sans_pro"
+        android:letterSpacing="0.02"
+        android:padding="@dimen/margin_10"
+        android:text="@string/start_matching"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
