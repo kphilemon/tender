@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
@@ -12,19 +11,14 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tender.R;
 import com.example.tender.utils.adapter.FriendsSubFragmentAdapter;
-import com.example.tender.utils.adapter.MatchesSubFragmentAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
-
-import www.sanju.motiontoast.MotionToast;
-import www.sanju.motiontoast.MotionToastStyle;
 
 public class MainFriendsFragment extends Fragment {
 
@@ -97,7 +91,7 @@ public class MainFriendsFragment extends Fragment {
         title.setText(getResources().getString(R.string.friends));
 
         ImageView userIcon = toolbar.findViewById(R.id.user_icon);
-        ImageView searchIcon = toolbar.findViewById(R.id.search_icon);
+        ImageView searchIcon = toolbar.findViewById(R.id.back_arrow_icon);
         userIcon.setVisibility(View.VISIBLE);
         searchIcon.setVisibility(View.VISIBLE);
 

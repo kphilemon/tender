@@ -9,9 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="@dimen/margin_20"
-        >
+        android:layout_height="?attr/actionBarSize">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="0dp"
@@ -24,42 +22,53 @@
             app:contentInsetStart="@dimen/margin_0">
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/toolbarTitle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:gravity="center|start"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_24sp"
-            app:layout_constraintHorizontal_weight="8"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="15dp" />
-
         <ImageView
             android:id="@+id/back_arrow_icon"
             android:layout_width="@dimen/margin_20"
             android:layout_height="@dimen/margin_20"
-            android:src="@drawable/ic_search"
-            android:visibility="gone"
+            android:src="@drawable/ic_back_arrow"
             app:layout_constraintHorizontal_weight="1"
             tools:ignore="MissingConstraints" />
 
-        <ImageView
-            android:id="@+id/user_icon"
-            android:layout_width="@dimen/margin_20"
-            android:layout_height="@dimen/margin_20"
-            android:src="@drawable/ic_user"
-            android:visibility="gone"
-            app:layout_constraintHorizontal_weight="1"
+<!--        <TextView-->
+<!--            android:id="@+id/toolbarTitle"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:fontFamily="@font/source_sans_pro_bold"-->
+<!--            android:gravity="center|start"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="@dimen/text_24sp"-->
+<!--            app:layout_constraintHorizontal_weight="8"-->
+<!--            tools:ignore="MissingConstraints"-->
+<!--            tools:layout_editor_absoluteX="15dp" />-->
+
+        <SearchView
+            android:id="@+id/userNameSearchView"
+            android:focusable="false"
+            android:layout_width="0dp"
+            android:queryBackground="@android:color/transparent"
+            android:layout_height="match_parent"
+            android:iconifiedByDefault="false"
+            android:searchIcon="@null"
+            android:queryHint="Search username"
+            android:background="@color/white"
             tools:ignore="MissingConstraints" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/user_icon"-->
+<!--            android:layout_width="@dimen/margin_20"-->
+<!--            android:layout_height="@dimen/margin_20"-->
+<!--            android:src="@drawable/ic_user"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintHorizontal_weight="1"-->
+<!--            tools:ignore="MissingConstraints" />-->
 
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_24"
             android:layout_marginEnd="@dimen/margin_24"
-            app:constraint_referenced_ids="toolbarTitle,back_arrow_icon, user_icon"
+            app:constraint_referenced_ids="back_arrow_icon, userNameSearchView"
             app:flow_horizontalGap="@dimen/margin_20"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

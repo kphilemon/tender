@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
         <activity
+            android:name=".ui.activity.DiscoverFriendsActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.DiscoverFriendsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/discover_friends_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/discover_friends_toolbar"
+            layout="@layout/toolbar_with_back_arrow" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+</RelativeLayout>

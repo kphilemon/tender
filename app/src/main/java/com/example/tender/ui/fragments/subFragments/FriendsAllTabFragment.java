@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tender.R;
+import com.todkars.shimmer.ShimmerRecyclerView;
 
 public class FriendsAllTabFragment extends Fragment {
 
@@ -33,5 +34,9 @@ public class FriendsAllTabFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        ShimmerRecyclerView recyclerView = view.findViewById(R.id.friends_all_tab_recyclerView);
+
+        recyclerView.showShimmer();
     }
 }
