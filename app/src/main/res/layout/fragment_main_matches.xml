@@ -20,8 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/frag_matches_toolbar"
-            android:background="@color/white"
-            app:tabBackground="@drawable/tab_background"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabIconTint="@drawable/tab_selector"
+            app:tabTextColor="@drawable/tab_selector"
             app:tabIndicator="@android:color/transparent"
             app:tabIndicatorAnimationMode="elastic"
             app:tabRippleColor="@null" />
