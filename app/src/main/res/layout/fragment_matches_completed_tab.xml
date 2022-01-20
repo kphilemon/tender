@@ -3,13 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.subFragments.MatchesCompletedTabFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.todkars.shimmer.ShimmerRecyclerView
+        android:id="@+id/matches_completed_tab_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Matches Completed Tab" />
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/margin_5"
+        app:shimmer_recycler_item_count="8"
+        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

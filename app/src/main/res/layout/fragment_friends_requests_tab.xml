@@ -6,16 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.subFragments.FriendsRequestsTabFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/requests"
-        android:fontFamily="@font/source_sans_pro"
-        android:textSize="@dimen/text_30sp"
-        android:textStyle="bold"
+    <com.todkars.shimmer.ShimmerRecyclerView
+        android:id="@+id/friends_requests_tab_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/margin_5"
+        app:shimmer_recycler_item_count="8"
+        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

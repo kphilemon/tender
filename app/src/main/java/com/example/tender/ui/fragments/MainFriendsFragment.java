@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tender.R;
-import com.example.tender.utils.adapter.FriendsSubFragmentAdapter;
+import com.example.tender.utils.adapter.viewPagerAdapter.FriendsSubFragmentAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
