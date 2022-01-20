@@ -9,8 +9,8 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="@dimen/margin_100"
-        android:layout_height="@dimen/margin_100"
+        android:layout_width="@dimen/margin_80"
+        android:layout_height="@dimen/margin_80"
         android:background="@drawable/tab_background"
         android:backgroundTint="@color/gray"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +20,21 @@
     <View
         android:id="@+id/view2"
         android:layout_width="0dp"
-        android:layout_height="@dimen/margin_30"
+        android:layout_height="@dimen/margin_15"
         android:background="@color/gray"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view3"/>
 
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
-        android:layout_height="@dimen/margin_50"
-        android:layout_marginTop="12dp"
+        android:layout_height="@dimen/margin_15"
         android:background="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
