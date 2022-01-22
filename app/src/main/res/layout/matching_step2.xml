@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="575dp">
+
+
+    <TextView
+        android:id="@+id/TVGiveItaName"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginLeft="17dp"
+        android:text="Give it a name"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:textStyle="bold"></TextView>
+
+    <EditText
+        android:id="@+id/ETGroupname"
+        android:layout_width="318dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="50dp"
+        android:hint="Example: Lunch"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="16dp">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/TVgroupmember"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="95dp"
+        android:textColor="#000000"
+        android:text=""
+        android:textSize="16dp"
+        android:textStyle="normal">
+
+    </TextView>
+
+
+    <Button
+        android:id="@+id/BtnStartSwiping"
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_shape"
+        android:text="StartSwiping"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="498dp"
+        android:textAllCaps="false"
+        />
+
+
+
+</RelativeLayout>

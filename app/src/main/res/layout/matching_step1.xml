@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="575dp">
+
+
+    <TextView
+        android:id="@+id/TVSelectFriends"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="17dp"
+        android:text="Selcct friends"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        android:textStyle="bold"></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chooselist"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginTop="46dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_storelist"
+        android:layout_width="360dp"
+        android:layout_height="437dp"
+        android:layout_marginTop="138dp"
+        android:background="@drawable/upper_border"></androidx.recyclerview.widget.RecyclerView>
+
+
+
+    <Button
+        android:id="@+id/BtnNext"
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_shape"
+        android:text="Next"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="498dp"
+        android:textAllCaps="false"
+        />
+
+
+
+</RelativeLayout>
