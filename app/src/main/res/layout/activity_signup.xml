@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    tools:context=".application.SignUpActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="@drawable/back_backspace_24"/>
+        app:navigationIcon="@drawable/back_backspace_24" />
 
 
     <TextView
@@ -56,7 +56,6 @@
 
 
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textinputlayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -72,16 +71,16 @@
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:maxLength="10"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/confirm_button"
         android:layout_width="330dp"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"

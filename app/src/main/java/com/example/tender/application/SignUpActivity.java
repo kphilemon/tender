@@ -1,27 +1,46 @@
-package com.example.tender;
+package com.example.tender.application;
 
 
 import android.graphics.Typeface;
+import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.text.style.StyleSpan;
-import android.widget.TextView;
-import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
+import com.bumptech.glide.load.engine.Resource;
+import com.example.tender.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class signup extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
+
+    TextInputLayout textInputLayout;
+    TextInputEditText user;
+
+
+    Button confirm;
+
+    boolean allgood = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        confirm = findViewById(R.id.confirm_button);
+        textInputLayout = (TextInputLayout) findViewById(R.id.textinputlayout);
+        user = (TextInputEditText) findViewById(R.id.username);
 
 
         TextView view = findViewById(R.id.textview2);
@@ -44,9 +63,33 @@ public class signup extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        TextInputLayout textInputLayout = (TextInputLayout) findViewById(R.id.textinputlayout);
-        textInputLayout.setError("");
+       user.addTextChangedListener(new TextWatcher() {
+           @Override
+           public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+           }
+
+           @Override
+           public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+           }
+
+           @Override
+           public void afterTextChanged(Editable s) {
+
+               if(s.length() < 7){
+                   textInputLayout.setError("Minimum characters are 7");
+               }
+               else {
+                   textInputLayout.setError(null);
+               }
+
+           }
+       });
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

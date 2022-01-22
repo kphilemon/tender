@@ -10,30 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
         <activity
-            android:name=".user_preferences"
-            android:exported="true" ></activity>
-        <activity
-            android:name=".signup"
-            android:exported="true"
-            android:parentActivityName=".splash"/>
-        <activity
-            android:name=".splash"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
+
+        </activity>
+        <activity android:name=".application.SignUpActivity"
+            android:exported="true">
+
+        </activity>
+        <activity android:name=".application.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".application.UserPreferencesActivity"
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

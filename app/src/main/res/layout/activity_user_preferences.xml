@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user_preferences">
+    tools:context=".application.UserPreferencesActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -84,31 +84,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_icon" />
 
-    <TextView
+
+    <Button
+        android:id="@+id/login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Log out"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:layout_height="20dp"
+        android:background="#00000000"
+        android:elevation="0dp"
+        android:text="Login"
+        android:textSize="10dp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
-
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/delete"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginBottom="10dp"
-        android:gravity="center"
+        android:background="#00000000"
+        android:elevation="0dp"
+        android:textAllCaps="false"
         android:text="Delete account"
         android:textColor="#F20A0A"
-        android:textSize="10sp"
+        android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView3"
