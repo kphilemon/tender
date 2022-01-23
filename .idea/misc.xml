@@ -48,6 +48,28 @@
         <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/matching_step2.xml" value="0.34322916666666664" />
         <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/recyc_choose_view.xml" value="0.34322916666666664" />
         <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/recyc_item_view.xml" value="0.34322916666666664" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/drawable-v24/choose_close.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/drawable/black_overlay.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/activity_discover_friends.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/activity_main.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/com_swipe_card_item.xml" value="0.264" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/fragment_friends_all_tab.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/fragment_friends_requests_tab.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/fragment_main_friends.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/fragment_matches_active_tab.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/fragment_matches_completed_tab.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/list_item_active_match.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/list_item_row_general.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/match_results.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/match_results_completed_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/matching_step1.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/matching_step2.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/placeholder_general_row_layout.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/recyc_choose_view.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/recyc_item_view.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/swipe_food_fragment.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/toolbar_with_actions.xml" value="0.2578125" />
+        <entry key="..\:/Users/kamal kumar/Desktop/tender/app/src/main/res/layout/toolbar_with_back_arrow.xml" value="0.2578125" />
       </map>
     </option>
   </component>
