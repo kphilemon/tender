@@ -18,7 +18,6 @@ public class SplashActivity extends AppCompatActivity {
 
         Button google = findViewById(R.id.google_button);
 
-
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

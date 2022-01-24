@@ -46,7 +46,6 @@ public class UserPreferencesActivity extends AppCompatActivity {
             }
         });
 
-
         if(getIntent().getExtras()!=null){
 
             String dummy = getIntent().getStringExtra("name");
@@ -56,11 +55,7 @@ public class UserPreferencesActivity extends AppCompatActivity {
             String dun = getIntent().getStringExtra("about");
             about.setText(dun);
 
-
         }
-
-
-
     }
 
     @Override

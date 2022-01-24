@@ -38,6 +38,7 @@ public class EditName extends BottomSheetDialogFragment {
 
                 String item1 = context.getText().toString();
                 String item2 = context1.getText().toString();
+
                 Intent intent =  new Intent(getContext(), UserPreferencesActivity.class);
                 intent.putExtra("name", item1);
                 intent.putExtra("about", item2);

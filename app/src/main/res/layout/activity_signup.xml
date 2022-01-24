@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/back_backspace_24" />
 
-
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
