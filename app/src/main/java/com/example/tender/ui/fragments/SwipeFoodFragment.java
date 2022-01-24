@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.vectordrawable.graphics.drawable.PathInterpolatorCompat;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -112,8 +113,16 @@ public class SwipeFoodFragment extends Fragment implements CardStackListener {
                Toast.makeText(requireContext(), "You Skipped me. I am disappointed", Toast.LENGTH_LONG).show();
            else if(direction == Direction.Right)
                Toast.makeText(requireContext(), "You like me? I like you too", Toast.LENGTH_LONG).show();
-           else if(manager.getTopPosition() == adapter.getItemCount())
+           if(manager.getTopPosition() == adapter.getItemCount()) {
+               MatchResultsFragment fg = new MatchResultsFragment();
+               // Delay so that swipe animation is completed successfully
+               new Handler().postDelayed(() -> requireActivity().getSupportFragmentManager().beginTransaction()
+                       .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_out_right, android.R.anim.slide_in_left)
+                       .replace(R.id.testing_fragment_mehdi, fg)
+                       .addToBackStack(null)
+                       .commit(), 400);
                Toast.makeText(requireContext(), "I am sorry you are out of your choices", Toast.LENGTH_LONG).show();
+           }
         }
 
         @Override
