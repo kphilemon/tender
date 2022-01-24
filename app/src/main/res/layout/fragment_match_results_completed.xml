@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.MatchResultsCompletedFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
@@ -40,17 +42,17 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-<!--        TODO: Inflate the com_swipe_card_item View inside Frame layout-->
-<!--        TODO: Remove the extra frame layouts in the inflated layout before inflating it into this frame -->
+        <!--        TODO: Inflate the com_swipe_card_item View inside Frame layout-->
+        <!--        TODO: Remove the extra frame layouts in the inflated layout before inflating it into this frame -->
         <FrameLayout
             android:id="@+id/swipe_item_result"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="@dimen/margin_20"
             android:layout_weight="1">
-<!--            TODO: ONLY FOR EXAMPLE
-                TODO: U NEED TO DO THIS PROGRAMMATICALLY,
-                TODO: REMOVE IT AFTER REFERENCE -->
+            <!--            TODO: ONLY FOR EXAMPLE
+                            TODO: U NEED TO DO THIS PROGRAMMATICALLY,
+                            TODO: REMOVE IT AFTER REFERENCE -->
             <include layout="@layout/com_swipe_card_item"/>
         </FrameLayout>
 

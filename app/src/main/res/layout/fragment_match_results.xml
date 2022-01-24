@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.MatchResultsFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
@@ -34,7 +36,7 @@
         android:fontFamily="sans-serif-medium"
         android:textSize="24sp"/>
 
-<!--    TODO: Inflate the list_item_row_general.xml in here-->
+    <!--    TODO: Inflate the list_item_row_general.xml in here-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/matching_resultsRV"
         android:layout_width="match_parent"

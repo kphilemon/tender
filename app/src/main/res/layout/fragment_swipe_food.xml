@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.fragments.SwipeFoodFragment">
 
-<!-- TODO: Use https://github.com/yuyakaido/CardStackView documentation for card stack wipe-->
-<!-- TODO: The card item is com_swipe_card_item.xml -->
-<!-- TODO: The overlay (Frame layout) present is automatically utilised by this library-->
+    <!-- TODO: Use https://github.com/yuyakaido/CardStackView documentation for card stack wipe-->
+    <!-- TODO: The card item is com_swipe_card_item.xml -->
+    <!-- TODO: The overlay (Frame layout) present is automatically utilised by this library-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/app_toolbar"
         android:layout_width="match_parent"
@@ -37,7 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="@dimen/dimen_16"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16"
         android:layout_below="@+id/swiping_candidatesTV"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" >
@@ -48,14 +53,14 @@
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin_10"
             android:layout_weight="1"
-            android:clipToPadding="false"
-            android:padding="4dp" />
+            android:elevation="0dp"
+            android:clipToPadding="false"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_margin="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_10"
             android:orientation="horizontal">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -67,6 +72,7 @@
                 app:backgroundTint="#FFBA25"
                 app:fabSize="auto"
                 app:rippleColor="#A67500"
+                app:elevation="0dp"
                 android:layout_marginEnd="@dimen/dimen_16"
                 android:contentDescription="Skip" />
 
@@ -77,11 +83,12 @@
                 android:layout_marginStart="@dimen/dimen_16"
                 android:src="@drawable/ic_heart"
                 app:backgroundTint="#FE5757"
+                app:elevation="0dp"
                 app:fabSize="auto"
                 app:rippleColor="#C80500"
                 android:contentDescription="Like" />
         </LinearLayout>
     </LinearLayout>
 
-
 </RelativeLayout>
+
