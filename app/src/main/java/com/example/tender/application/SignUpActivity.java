@@ -3,10 +3,8 @@ package com.example.tender.application;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.TextWatcher;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,13 +13,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
-import com.bumptech.glide.load.engine.Resource;
 import com.example.tender.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -42,6 +38,12 @@ public class SignUpActivity extends AppCompatActivity {
         textInputLayout = (TextInputLayout) findViewById(R.id.textinputlayout);
         user = (TextInputEditText) findViewById(R.id.username);
 
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validate();
+            }
+        });
 
         TextView view = findViewById(R.id.textview2);
         String text = "Pick wisely because once you get a name, you\n" +
@@ -58,37 +60,53 @@ public class SignUpActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // add back arrow to toolbar
-        if (getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-       user.addTextChangedListener(new TextWatcher() {
-           @Override
-           public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-           }
-
-           @Override
-           public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-           }
-
-           @Override
-           public void afterTextChanged(Editable s) {
-
-               if(s.length() < 7){
-                   textInputLayout.setError("Minimum characters are 7");
-               }
-               else {
-                   textInputLayout.setError(null);
-               }
-
-           }
-       });
 
     }
 
+    public void validate(){
+
+        if(!validusername()){
+            return;
+        }
+    }
+
+
+    private boolean validusername() {
+
+        String val = textInputLayout.getEditText().getText().toString().trim();
+
+
+        if (val.isEmpty()) {
+            textInputLayout.setError("Field cannot be empty");
+            return false;
+        } else if (val.length() < 7) {
+            textInputLayout.setError("Minimum 7 characters required");
+            return false;
+        } else if (isStringOnlyAlphabet(val) == false) {
+            textInputLayout.setError("Invalid Username");
+            return false;
+        } else if (val.length() > 25) {
+            textInputLayout.setError("Username is too large");
+            return false;
+        } else {
+            textInputLayout.setError(null);
+            textInputLayout.setErrorEnabled(false);
+            return true;
+        }
+
+    }
+
+
+    private static boolean isStringOnlyAlphabet(String str) {
+        return ((str != null)
+                && (!str.equals(""))
+                && (str.matches("^[a-zA-Z_.]*$")));
+    }
 
 
     @Override

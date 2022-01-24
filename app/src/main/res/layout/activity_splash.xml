@@ -7,18 +7,14 @@
     tools:context=".application.SplashActivity">
 
 
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_tender">
+        android:alpha="0.5"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_tender" />
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.8"
-            android:background="@color/white" />
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,8 +22,8 @@
         android:layout_centerInParent="true"
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="Tender"
-        android:textSize="30dp"
         android:textColor="@color/black"
+        android:textSize="30dp"
         android:textStyle="bold" />
 
     <Button
@@ -37,14 +33,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:singleLine="true"
-        android:drawableLeft="@drawable/img_1"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/rounded_bg"
+        android:drawableLeft="@drawable/img_1"
         android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:singleLine="true"
         android:text="Continue with Google"
         android:textAllCaps="false"
         android:textColor="@color/white"
