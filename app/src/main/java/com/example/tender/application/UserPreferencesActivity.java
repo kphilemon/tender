@@ -7,16 +7,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.tender.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-public class UserPreferencesActivity extends AppCompatActivity {
+public class UserPreferencesActivity extends AppCompatActivity implements Custom_Dialog.Custom_DialogInterFace, Custom_Dialog1.Custom_dialog{
 
-    Button buttonShow;
-    TextView name, about;
+    Button buttonShow, buttonshow1, submit;
+    TextView name, about, content;
+    AlertDialog dialog;
+
+    public void openDialog(){
+        Custom_Dialog custom_dialog = new Custom_Dialog();
+        custom_dialog.show(getSupportFragmentManager(), "Edit Name");
+
+    }
+
+    public void openDialog1(){
+        Custom_Dialog1 custom_dialog1 = new Custom_Dialog1();
+        custom_dialog1.show(getSupportFragmentManager(), "Edit About");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +47,28 @@ public class UserPreferencesActivity extends AppCompatActivity {
         }
 
         buttonShow = findViewById(R.id.buttonShow);
+        buttonshow1 = findViewById(R.id.buttonShow1);
 
         name = findViewById(R.id.name);
         about = findViewById(R.id.aboutyou);
+        content = findViewById(R.id.edit_name);
 
         buttonShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditName dialogSheet = new EditName();
-                dialogSheet.show(getSupportFragmentManager(), "TAG");
+                openDialog();
             }
         });
 
-        if(getIntent().getExtras()!=null){
+        buttonshow1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog1();
+            }
+        });
 
-            String dummy = getIntent().getStringExtra("name");
-            name.setText(dummy);
 
-
-            String dun = getIntent().getStringExtra("about");
-            about.setText(dun);
-
-        }
-    }
+     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -67,5 +79,15 @@ public class UserPreferencesActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
 
+    }
+
+    @Override
+    public void applyTexts(String cont) {
+        name.setText(cont);
+    }
+
+    @Override
+    public void applyText(String cont) {
+        about.setText(cont);
     }
 }
