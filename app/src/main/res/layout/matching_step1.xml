@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="360dp"
-    android:layout_height="575dp">
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/TVSelectFriends"
-        android:layout_width="170dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="17dp"
-        android:text="Selcct friends"
-        android:textColor="#000000"
-        android:textSize="24dp"
-        android:textStyle="bold"></TextView>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginStart="18dp"
+        android:text="Select friends"
+        android:fontFamily="@font/source_sans_pro"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_chooselist"
@@ -20,31 +20,26 @@
         android:layout_height="72dp"
         android:layout_marginTop="46dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:paddingRight="10dp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_storelist"
-        android:layout_width="360dp"
-        android:layout_height="437dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="138dp"
-        android:background="@drawable/upper_border"></androidx.recyclerview.widget.RecyclerView>
-
-
+        android:background="@drawable/upper_border" />
 
     <Button
         android:id="@+id/BtnNext"
-        android:layout_width="310dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/margin_300"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_30"
         android:background="@drawable/btn_shape"
         android:text="Next"
-        android:textColor="#FFFFFF"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="498dp"
         android:textAllCaps="false"
-        />
-
-
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
