@@ -1,6 +1,7 @@
 package com.example.tender.utils.adapter.recyclerAdapter;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class ChooseListAdapter extends RecyclerView.Adapter<ChooseListAdapter.Li
 
 
     @Override
-    public void onBindViewHolder(@NonNull LinearViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LinearViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.image_info_photo_choose.setImageResource((Integer) Matching_step1.chooseimageDatas.get(position));
         holder.text_info_name_choose.setText(Matching_step1.chooseusernameData.get(position));
         holder.text_info_sign_choose.setText(Matching_step1.chooseusersignData.get(position));
