@@ -55,6 +55,8 @@
         android:id="@+id/frag_matches_go_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/margin_24"
         android:layout_marginBottom="@dimen/margin_24"
         android:background="@drawable/rounded_bg"
@@ -62,8 +64,6 @@
         android:letterSpacing="0.02"
         android:padding="@dimen/margin_10"
         android:text="@string/start_matching"
-        android:textColor="@color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>

@@ -22,9 +22,11 @@ public class DiscoverFriendsActivity extends AppCompatActivity {
     }
 
     private void setupToolBar() {
-        AppBarLayout toolbar = findViewById(R.id.discover_friends_toolbar);
 
+        AppBarLayout toolbar = findViewById(R.id.discover_friends_toolbar);
         SearchView searchView = toolbar.findViewById(R.id.userNameSearchView);
+        searchView.setVisibility(View.VISIBLE);
+
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
 
         backButtonImage.setOnClickListener(new View.OnClickListener() {

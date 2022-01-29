@@ -17,7 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/margin_5"
-        app:shimmer_recycler_item_count="3"
         app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

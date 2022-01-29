@@ -50,6 +50,7 @@
             android:layout_height="match_parent"
             android:iconifiedByDefault="false"
             android:searchIcon="@null"
+            android:visibility="invisible"
             android:queryHint="Search username"
             android:background="@color/white"
             tools:ignore="MissingConstraints" />
