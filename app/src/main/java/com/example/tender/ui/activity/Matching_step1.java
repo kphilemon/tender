@@ -44,8 +44,6 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
 
         readuserData();
 
-
-
         rv_storelist = findViewById(R.id.rv_storelist);
         rv_storelist.setLayoutManager(linearLayoutManager);
 
@@ -62,19 +60,11 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         rv_chooselist.setAdapter(chooseListAdapter);
         rv_chooselist.setItemAnimator(new DefaultItemAnimator());
 
-
-
-
-
-
-
-
         ActionBar backActionBar = getSupportActionBar();
         if(backActionBar!= null){
             backActionBar.setDisplayHomeAsUpEnabled(true);
             backActionBar.setTitle(null);
         }
-
 
         Button BtnNext = findViewById(R.id.BtnNext);
         BtnNext.setOnClickListener(new View.OnClickListener(){
@@ -85,10 +75,6 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
                 overridePendingTransition(0, 0);
             }
         });
-
-
-
-
     }
 
     private void readuserData() {
@@ -100,6 +86,8 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         usernameData.add("fafat");
         usernameData.add("thhh");
         usernameData.add("asdf");
+        usernameData.add("asdf");
+        usernameData.add("asdf");
 
         usersignData = new ArrayList<String>();
         usersignData.add("I love u 3000");
@@ -109,9 +97,12 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         usersignData.add("vbqebfviq");
         usersignData.add("asfasdf");
         usersignData.add("sdfg");
-
+        usersignData.add("sdfg");
+        usersignData.add("sdfg");
 
         imageDatas = new ArrayList();
+        imageDatas.add(R.drawable.ic_launcher_background);
+        imageDatas.add(R.drawable.ic_launcher_background);
         imageDatas.add(R.drawable.ic_launcher_background);
         imageDatas.add(R.drawable.ic_launcher_background);
         imageDatas.add(R.drawable.ic_launcher_background);
@@ -137,7 +128,6 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         imageDatas.remove(imageDatas.get(position));
         chooseListAdapter.notifyDataSetChanged();
         rv_storelistAdapter.notifyDataSetChanged();
-
 
     }
 

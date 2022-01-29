@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable-v24/btn_shape.xml" value="0.3828125" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable-v24/upper_border.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/custom_colour_navigation.xml" value="0.26145833333333335" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/friends_icon_selector.xml" value="0.3731481481481482" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/gradient.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/ic_friends_activated_icon.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/ic_spoon_fork.xml" value="0.3828125" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/ic_user.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/matches_icon_selector.xml" value="0.2" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/rounded_bg.xml" value="0.264" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/rounded_bg_transparent.xml" value="0.3828125" />
@@ -34,6 +37,8 @@
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_matches_completed_tab.xml" value="0.264" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_active_match.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_row_general.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/matching_step1.xml" value="0.2" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/matching_step2.xml" value="0.23596014492753623" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/placeholder_general_row_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/tab_title.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/toolbar_with_actions.xml" value="0.36666666666666664" />
@@ -51,7 +56,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
