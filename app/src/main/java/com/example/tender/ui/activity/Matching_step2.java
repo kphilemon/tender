@@ -59,7 +59,6 @@ public class Matching_step2 extends AppCompatActivity {
             backActionBar.setTitle(null);
         }
 
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
@@ -69,7 +68,6 @@ public class Matching_step2 extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }
 
