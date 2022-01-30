@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.SignUpActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/back_backspace_24" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="@dimen/margin_24"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="Welcome!"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:text="@string/signup_title"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text1"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:text="@string/pick_wisely"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinputlayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview2"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_alignRight="@+id/text1"
+        android:layout_marginTop="@dimen/margin_20"
+        app:boxStrokeColor="#BFBFBF"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/wrong"
+        app:errorTextColor="@color/red">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="330dp"
+        android:layout_height="@dimen/margin_50"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/rounded_bg"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:text="Confirm"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+
+</RelativeLayout>

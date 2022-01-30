@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.UserPreferencesActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back_backspace_24" />
+
+    <ImageView
+        android:id="@+id/bg_image"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:alpha="0.25"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_tender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/margin_100"
+        android:layout_height="@dimen/margin_100"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar1"
+        app:srcCompat="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:text="doctor_strange"
+        android:letterSpacing="0.02"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="12dp"
+        android:text="Profile"
+        android:textStyle="bold"
+        android:letterSpacing="0.02"
+        android:textColor="@color/darkGray"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg_image" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_24"
+        android:text="Preferences"
+        android:textStyle="bold"
+        android:letterSpacing="0.02"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_icon" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_5"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/source_sans_pro"
+        android:letterSpacing="0.02"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintBottom_toTopOf="@+id/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/source_sans_pro"
+        android:letterSpacing="0.02"
+        android:text="Delete account"
+        android:textAllCaps="false"
+        android:textColor="@color/red"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:text="Display name"
+        android:fontFamily="@font/source_sans_pro"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toBottomOf="@+id/bg_image" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Doctor Strange"
+        android:layout_marginTop="@dimen/margin_5"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="@dimen/margin_50"
+        android:layout_height="@dimen/margin_50"
+        android:layout_marginStart="@dimen/margin_24"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/darkOrange"
+        android:src="@drawable/ic_user"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="@dimen/margin_250"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="3"
+        android:text="This will be appeared to the viewers of the public and does not change your username"
+        android:textSize="@dimen/text_12sp"
+
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <ImageButton
+        android:id="@+id/info_icon"
+        android:layout_width="@dimen/margin_50"
+        android:layout_height="@dimen/margin_50"
+        android:layout_marginStart="@dimen/margin_24"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/darkOrange"
+        android:src="@drawable/info"
+        app:layout_constraintBottom_toBottomOf="@+id/aboutyou"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/info_icon2"
+        android:layout_width="@dimen/margin_50"
+        android:layout_height="@dimen/margin_50"
+        android:layout_marginStart="@dimen/margin_24"
+        android:background="@drawable/rounded_bg"
+        android:backgroundTint="@color/darkOrange"
+        android:src="@drawable/notifications"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="About you"
+        android:fontFamily="@font/source_sans_pro"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toEndOf="@+id/info_icon"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/aboutyou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="@dimen/margin_5"
+        android:text="I am the sorcerer supreme"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toEndOf="@+id/info_icon"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="Notifications"
+        android:fontFamily="@font/source_sans_pro"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toEndOf="@+id/info_icon2"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:checked="false"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:shadowColor="#FF512F"
+        android:textColorHighlight="#FF512F"
+        android:theme="@style/SCBSwitch"
+        app:layout_constraintBottom_toBottomOf="@+id/info_icon2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/info_icon2"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Button
+        android:id="@+id/buttonShow"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:drawableStart="@drawable/edit"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/buttonShow1"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:drawableStart="@drawable/edit"
+        app:layout_constraintBottom_toBottomOf="@+id/aboutyou"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

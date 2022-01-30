@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tender.R;
 import com.example.tender.utils.adapter.recyclerAdapter.ChooseListAdapter;
 import com.example.tender.utils.adapter.recyclerAdapter.StoreListAdapter;
+import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 
 public class Matching_step1 extends AppCompatActivity implements StoreListAdapter.OnItemClickListener {
+
     private RecyclerView rv_storelist;
     private StoreListAdapter rv_storelistAdapter = null;
 
@@ -28,28 +32,25 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
     public static ArrayList<String> usersignData = null;
     public static ArrayList imageDatas = null;
 
-
     public static ArrayList<String> chooseusernameData = null;
     public static ArrayList chooseimageDatas = null;
     public static ArrayList<String> chooseusersignData = null;
 
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Matching_step1.this);
-    LinearLayoutManager linearLayoutManager_choose = new LinearLayoutManager(Matching_step1.this,RecyclerView.HORIZONTAL,false);
-
+    LinearLayoutManager linearLayoutManager_choose = new LinearLayoutManager(Matching_step1.this, RecyclerView.HORIZONTAL, false);
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.matching_step1);
 
+        setupToolBar();
         readuserData();
-
-
 
         rv_storelist = findViewById(R.id.rv_storelist);
         rv_storelist.setLayoutManager(linearLayoutManager);
 
-        rv_storelistAdapter = new StoreListAdapter(this,usernameData,usersignData,imageDatas );
+        rv_storelistAdapter = new StoreListAdapter(this, usernameData, usersignData, imageDatas);
         rv_storelistAdapter.setOnItemClickListener(this);
         rv_storelist.setAdapter(rv_storelistAdapter);
         rv_storelist.setItemAnimator(new DefaultItemAnimator());
@@ -57,38 +58,26 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         rv_chooselist = findViewById(R.id.rv_chooselist);
         rv_chooselist.setLayoutManager(linearLayoutManager_choose);
 
-        chooseListAdapter = new ChooseListAdapter(this,chooseusernameData,chooseusersignData,chooseimageDatas);
+        chooseListAdapter = new ChooseListAdapter(this, chooseusernameData, chooseusersignData, chooseimageDatas);
         chooseListAdapter.setOnItemClickListener_choose(this::onClick_choose);
         rv_chooselist.setAdapter(chooseListAdapter);
         rv_chooselist.setItemAnimator(new DefaultItemAnimator());
 
-
-
-
-
-
-
-
-        ActionBar backActionBar = getSupportActionBar();
-        if(backActionBar!= null){
-            backActionBar.setDisplayHomeAsUpEnabled(true);
-            backActionBar.setTitle(null);
-        }
-
+//        ActionBar backActionBar = getSupportActionBar();
+//        if(backActionBar!= null){
+//            backActionBar.setDisplayHomeAsUpEnabled(true);
+//            backActionBar.setTitle(null);
+//        }
 
         Button BtnNext = findViewById(R.id.BtnNext);
-        BtnNext.setOnClickListener(new View.OnClickListener(){
+        BtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Matching_step1.this,Matching_step2.class);
+                Intent intent = new Intent(Matching_step1.this, Matching_step2.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
         });
-
-
-
-
     }
 
     private void readuserData() {
@@ -100,6 +89,7 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         usernameData.add("fafat");
         usernameData.add("thhh");
         usernameData.add("asdf");
+
 
         usersignData = new ArrayList<String>();
         usersignData.add("I love u 3000");
@@ -120,10 +110,24 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         imageDatas.add(R.drawable.ic_launcher_background);
         imageDatas.add(R.drawable.ic_launcher_background);
 
+
         chooseimageDatas = new ArrayList();
         chooseusernameData = new ArrayList<String>();
         chooseusersignData = new ArrayList<String>();
 
+    }
+
+    private void setupToolBar() {
+        AppBarLayout toolbar = findViewById(R.id.match_step_1_toolbar);
+        SearchView searchView = toolbar.findViewById(R.id.userNameSearchView);
+        ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
+
+        backButtonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -138,7 +142,6 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         chooseListAdapter.notifyDataSetChanged();
         rv_storelistAdapter.notifyDataSetChanged();
 
-
     }
 
     public void onClick_choose(View parent, int position) {
@@ -147,9 +150,11 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         usernameData.add(chooseusernameData.get(position));
         imageDatas.add(chooseimageDatas.get(position));
         usersignData.add(chooseusersignData.get(position));
+
         chooseusernameData.remove(chooseusernameData.get(position));
         chooseimageDatas.remove(chooseimageDatas.get(position));
         chooseusersignData.remove(chooseusersignData.get(position));
+
         chooseListAdapter.notifyDataSetChanged();
         rv_storelistAdapter.notifyDataSetChanged();
 
