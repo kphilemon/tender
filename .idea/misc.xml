@@ -28,7 +28,10 @@
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_signup.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_splash.xml" value="0.4" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_user_preference.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_user_preferences.xml" value="0.4" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_friends_all_tab.xml" value="0.35260416666666666" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_friends_requests_tab.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_main_friends.xml" value="0.264" />
@@ -45,14 +48,51 @@
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/toolbar_with_back_arrow.xml" value="0.4" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/menu/bottom_nav_menu_patient.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/menu/main_bottom_nav_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/drawable-v24/btn_shape.xml" value="0.2972222222222222" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/drawable-v24/choose_close.xml" value="0.2675925925925926" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/drawable-v24/circle_image_button.xml" value="0.2675925925925926" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/drawable-v24/upper_border.xml" value="0.2675925925925926" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/matching_step1.xml" value="0.34322916666666664" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/matching_step2.xml" value="0.34322916666666664" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/recyc_choose_view.xml" value="0.34322916666666664" />
-        <entry key="..\:/SEMESTER6/MAD/TenderProject/tender/app/src/main/res/layout/recyc_item_view.xml" value="0.34322916666666664" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/back_background.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/back_backspace_24.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/back_foreground.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/circle.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/circular_button.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/custom_edittext.xml" value="0.290625" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/edit.xml" value="0.290625" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/edit_background.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/edit_foreground.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/errortext.xml" value="0.290625" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/friends_icon_selector.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_friends_activated_icon.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_friends_inactivate_icon.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_group.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_search.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_spoon_fork_inactive_icon.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/ic_user.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/info.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/matches_icon_selector.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/rounded_bg.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/rounded_bg_white.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/spoon_fork_activated_icon.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/stretch.xml" value="0.290625" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/switch_button.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable/tab_background.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/font/source_sans_pro.xml" value="0.2962962962962963" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/activity_signup.xml" value="0.4" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/activity_user_preferences.xml" value="0.536" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/edit_dialogsheet.xml" value="0.264" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/edit_dialogsheet_about.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/fragment_friends_all_tab.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/fragment_friends_requests_tab.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/fragment_main_friends.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/fragment_main_matches.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/fragment_matches_active_tab.xml" value="0.182518115942029" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/fragment_matches_completed_tab.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/layout/toolbar_with_actions.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/back.xml" value="0.290625" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/back_round.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/edit.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/edit_round.xml" value="0.15989583333333332" />
       </map>
     </option>
   </component>
