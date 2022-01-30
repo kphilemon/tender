@@ -1,6 +1,7 @@
 package com.example.tender.ui.activity;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.tender.R;
+import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -34,8 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         confirm = findViewById(R.id.confirm_button);
-        textInputLayout = (TextInputLayout) findViewById(R.id.textinputlayout);
-        user = (TextInputEditText) findViewById(R.id.username);
+        textInputLayout = findViewById(R.id.textinputlayout);
+        user = findViewById(R.id.username);
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         String text = "Pick wisely because once you get a name, you\n" +
                 "can't change it.";
 
+        // bold part of the text
         SpannableString ss = new SpannableString(text);
         StyleSpan bold = new StyleSpan(Typeface.BOLD);
         ss.setSpan(bold, 44, 58, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -68,7 +71,13 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void validate(){
         if(!validusername()){
-            return;
+            AppUtils.toast(SignUpActivity.this, "Invalid username");
+        } else {
+            //AppUtils.toast(SignUpActivity.this, "Successfully registered username");
+            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -82,15 +91,18 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (val.length() < 7) {
             textInputLayout.setError("Minimum 7 characters required");
             return false;
-        } else if (isStringOnlyAlphabet(val) == false) {
+        } else if (!isStringOnlyAlphabet(val)) {
             textInputLayout.setError("Invalid Username");
             return false;
         } else if (val.length() > 25) {
             textInputLayout.setError("Username is too large");
             return false;
         } else {
+
             textInputLayout.setError(null);
             textInputLayout.setErrorEnabled(false);
+            textInputLayout.setBoxStrokeColor(getResources().getColor(R.color.green));
+
             return true;
         }
 

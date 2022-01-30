@@ -52,7 +52,8 @@
             android:src="@drawable/ic_user"
             android:visibility="gone"
             app:layout_constraintHorizontal_weight="1"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            app:tint="#545454" />
 
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="0dp"
