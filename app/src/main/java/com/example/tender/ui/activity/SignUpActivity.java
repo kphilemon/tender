@@ -1,4 +1,4 @@
-package com.example.tender.application;
+package com.example.tender.ui.activity;
 
 
 import android.graphics.Typeface;
@@ -23,7 +23,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     TextInputLayout textInputLayout;
     TextInputEditText user;
-
 
     Button confirm;
 
@@ -65,21 +64,17 @@ public class SignUpActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-
     }
 
     public void validate(){
-
         if(!validusername()){
             return;
         }
     }
 
-
     private boolean validusername() {
 
         String val = textInputLayout.getEditText().getText().toString().trim();
-
 
         if (val.isEmpty()) {
             textInputLayout.setError("Field cannot be empty");
@@ -108,15 +103,14 @@ public class SignUpActivity extends AppCompatActivity {
                 && (str.matches("^[a-zA-Z_.]*$")));
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 }
 

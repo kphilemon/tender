@@ -1,6 +1,5 @@
-package com.example.tender.application;
+package com.example.tender.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,24 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.tender.R;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.example.tender.ui.fragments.customDialog.Custom_Dialog;
+import com.example.tender.ui.fragments.customDialog.Custom_Dialog1;
+import com.example.tender.utils.appUtils.AppUtils;
 
-public class UserPreferencesActivity extends AppCompatActivity implements Custom_Dialog.Custom_DialogInterFace, Custom_Dialog1.Custom_dialog{
+public class UserPreferencesActivity extends AppCompatActivity implements Custom_Dialog.Custom_DialogInterFace, Custom_Dialog1.Custom_dialog {
 
-    Button buttonShow, buttonshow1, submit;
+    Button buttonShow, buttonshow1, submit, loginBtn, deleteBtn;
     TextView name, about, content;
     AlertDialog dialog;
 
-    public void openDialog(){
-        Custom_Dialog custom_dialog = new Custom_Dialog();
-        custom_dialog.show(getSupportFragmentManager(), "Edit Name");
-
-    }
-
-    public void openDialog1(){
-        Custom_Dialog1 custom_dialog1 = new Custom_Dialog1();
-        custom_dialog1.show(getSupportFragmentManager(), "Edit About");
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +39,8 @@ public class UserPreferencesActivity extends AppCompatActivity implements Custom
 
         buttonShow = findViewById(R.id.buttonShow);
         buttonshow1 = findViewById(R.id.buttonShow1);
+        loginBtn = findViewById(R.id.login);
+        deleteBtn = findViewById(R.id.delete);
 
         name = findViewById(R.id.name);
         about = findViewById(R.id.aboutyou);
@@ -67,8 +60,31 @@ public class UserPreferencesActivity extends AppCompatActivity implements Custom
             }
         });
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppUtils.toast(UserPreferencesActivity.this, "Login button clicked");
+            }
+        });
 
-     }
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppUtils.toast(UserPreferencesActivity.this, "Delete account button clicked");
+            }
+        });
+
+    }
+
+    public void openDialog() {
+        Custom_Dialog custom_dialog = new Custom_Dialog();
+        custom_dialog.show(getSupportFragmentManager(), "Edit Name");
+    }
+
+    public void openDialog1() {
+        Custom_Dialog1 custom_dialog1 = new Custom_Dialog1();
+        custom_dialog1.show(getSupportFragmentManager(), "Edit About");
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -76,9 +92,7 @@ public class UserPreferencesActivity extends AppCompatActivity implements Custom
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
         }
-
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override

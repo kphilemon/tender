@@ -1,4 +1,4 @@
-package com.example.tender.application;
+package com.example.tender.ui.fragments.customDialog;
 
 import android.app.Dialog;
 import android.content.Context;

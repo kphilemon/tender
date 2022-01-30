@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".application.SplashActivity">
+    tools:context=".ui.activity.SplashActivity">
 
 
     <ImageView
@@ -15,6 +15,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_tender" />
 
+    <!-- Insert the Image view here for the Logo -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,19 +24,20 @@
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="Tender"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="@dimen/text_30sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/google_button"
-        android:layout_width="330dp"
+        android:layout_width="310dp"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="50dp"
         android:background="@drawable/rounded_bg"
-        android:drawableLeft="@drawable/img_1"
+        android:drawableLeft="@drawable/ic_google"
         android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
         android:paddingLeft="50dp"
@@ -43,5 +46,5 @@
         android:text="Continue with Google"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 </RelativeLayout>
