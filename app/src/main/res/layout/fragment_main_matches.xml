@@ -20,8 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/frag_matches_toolbar"
-            android:background="@color/white"
-            app:tabBackground="@drawable/tab_background"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabIconTint="@drawable/tab_selector"
+            app:tabTextColor="@drawable/tab_selector"
             app:tabIndicator="@android:color/transparent"
             app:tabIndicatorAnimationMode="elastic"
             app:tabRippleColor="@null" />
@@ -54,6 +55,8 @@
         android:id="@+id/frag_matches_go_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/margin_24"
         android:layout_marginBottom="@dimen/margin_24"
         android:background="@drawable/rounded_bg"
@@ -61,8 +64,6 @@
         android:letterSpacing="0.02"
         android:padding="@dimen/margin_10"
         android:text="@string/start_matching"
-        android:textColor="@color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>

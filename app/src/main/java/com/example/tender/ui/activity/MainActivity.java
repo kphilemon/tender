@@ -9,10 +9,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.tender.R;
-import com.example.tender.utils.adapter.ViewPagerAdapter;
+import com.example.tender.utils.adapter.viewPagerAdapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,16 +1,19 @@
-package com.example.tender.utils.adapter;
+package com.example.tender.utils.adapter.viewPagerAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.tender.ui.fragments.subFragments.FriendsAllTabFragment;
+import com.example.tender.ui.fragments.subFragments.FriendsRequestsTabFragment;
 import com.example.tender.ui.fragments.subFragments.MatchesActiveTabFragment;
 import com.example.tender.ui.fragments.subFragments.MatchesCompletedTabFragment;
 
-public class MatchesSubFragmentAdapter extends FragmentStateAdapter {
+public class FriendsSubFragmentAdapter extends FragmentStateAdapter {
 
-    public MatchesSubFragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+    public FriendsSubFragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
 
@@ -20,9 +23,9 @@ public class MatchesSubFragmentAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 1:
-                return new MatchesCompletedTabFragment();
+                return new FriendsRequestsTabFragment();
             default:
-                return new MatchesActiveTabFragment();
+                return new FriendsAllTabFragment();
         }
     }
 

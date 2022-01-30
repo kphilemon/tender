@@ -1,4 +1,4 @@
-package com.example.tender.utils.adapter;
+package com.example.tender.utils.adapter.viewPagerAdapter;
 
 
 import androidx.annotation.NonNull;

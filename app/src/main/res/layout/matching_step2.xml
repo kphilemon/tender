@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/matching_step_2_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/match_step_2_toolbar"
+            layout="@layout/toolbar_with_back_arrow" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/TVGiveItaName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/matching_step_2_app_bar"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="@dimen/margin_5"
+        android:padding="@dimen/margin_5"
+        android:text="Give it a name"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/ETGroupname"
+        android:layout_width="@dimen/margin_300"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TVGiveItaName"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="@dimen/margin_5"
+        android:hint="Example: Lunch"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_16sp" />
+
+    <TextView
+        android:id="@+id/TVgroupmember"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ETGroupname"
+        android:layout_marginStart="18dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/margin_5"
+        android:textColor="#000000"
+        android:textSize="@dimen/text_16sp"
+        android:textStyle="normal" />
+
+    <Button
+        android:id="@+id/BtnStartSwiping"
+        android:layout_width="@dimen/margin_300"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:background="@drawable/btn_shape"
+        android:text="Start Swiping"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

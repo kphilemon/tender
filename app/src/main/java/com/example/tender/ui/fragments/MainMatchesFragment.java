@@ -1,5 +1,6 @@
 package com.example.tender.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tender.R;
-import com.example.tender.utils.adapter.MatchesSubFragmentAdapter;
+import com.example.tender.ui.activity.DiscoverFriendsActivity;
+import com.example.tender.utils.adapter.viewPagerAdapter.MatchesSubFragmentAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
@@ -112,9 +114,16 @@ public class MainMatchesFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.toast(requireContext(), "FAB clicked");
+                goToDiscoverFriends();
+                //AppUtils.toast(requireContext(), "FAB clicked");
             }
         });
+    }
+
+    /** Called when the user taps the Send button */
+    public void goToDiscoverFriends() {
+        Intent intent = new Intent(requireContext(), DiscoverFriendsActivity.class);
+        startActivity(intent);
     }
 
 

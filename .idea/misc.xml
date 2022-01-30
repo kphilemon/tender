@@ -3,22 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable-v24/btn_shape.xml" value="0.3828125" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable-v24/upper_border.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/custom_colour_navigation.xml" value="0.26145833333333335" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/friends_icon_selector.xml" value="0.3731481481481482" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/gradient.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/ic_friends_activated_icon.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/ic_spoon_fork.xml" value="0.3828125" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/ic_user.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/matches_icon_selector.xml" value="0.2" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/rounded_bg.xml" value="0.264" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/rounded_bg_transparent.xml" value="0.3828125" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/rounded_bg_white.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/spoon_fork_activated_icon.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tab_background.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tab_bg_selector.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tab_indicator.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tab_layout_bg.xml" value="0.2484375" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tab_selected_bg.xml" value="0.3828125" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tab_selector.xml" value="0.3828125" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/drawable/tabs_selector.xml" value="0.2484375" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/font/source_sans_pro.xml" value="0.396875" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_discover_friends.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_main2.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_settings.xml" value="0.36666666666666664" />
@@ -32,8 +38,14 @@
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_main_matches.xml" value="0.264" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_matches_active_tab.xml" value="0.264" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_matches_completed_tab.xml" value="0.264" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_active_match.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_row_general.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/matching_step1.xml" value="0.2" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/matching_step2.xml" value="0.23596014492753623" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/placeholder_general_row_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/tab_title.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/toolbar_with_actions.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/toolbar_with_back_arrow.xml" value="0.4" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/menu/bottom_nav_menu_patient.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/menu/main_bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28615384615384615" />
