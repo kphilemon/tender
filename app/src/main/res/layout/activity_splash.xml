@@ -34,7 +34,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="50dp"
         android:background="@drawable/rounded_bg"
-        android:drawableLeft="@drawable/img_1"
+        android:drawableLeft="@drawable/gmail"
         android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
         android:paddingLeft="50dp"

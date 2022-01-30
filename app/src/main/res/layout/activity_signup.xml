@@ -65,6 +65,7 @@
         android:layout_alignLeft="@+id/text1"
         android:layout_alignRight="@+id/text1"
         app:boxStrokeColor="#BFBFBF"
+        app:boxStrokeErrorColor="@color/gray"
         app:errorIconDrawable="@drawable/wrong"
         app:errorTextColor="@color/red"
         app:errorEnabled="true">
