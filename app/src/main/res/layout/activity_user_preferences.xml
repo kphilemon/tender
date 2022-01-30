@@ -13,13 +13,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/back_backspace_24" />
+        app:navigationIcon="@drawable/ic_back_arrow" />
 
     <ImageView
         android:id="@+id/bg_image"
         android:layout_width="match_parent"
         android:layout_height="225dp"
-        android:alpha="0.25"
+        android:alpha="0.15"
         android:background="@color/white"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_tender"
@@ -252,7 +252,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="@dimen/margin_24"
-        android:drawableStart="@drawable/edit"
+        android:drawableStart="@drawable/ic_edit_pencil"
         app:layout_constraintBottom_toBottomOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3"
@@ -264,7 +264,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="@dimen/margin_24"
-        android:drawableStart="@drawable/edit"
+        android:drawableStart="@drawable/ic_edit_pencil"
         app:layout_constraintBottom_toBottomOf="@+id/aboutyou"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6"

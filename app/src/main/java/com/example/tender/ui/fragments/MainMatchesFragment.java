@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.tender.R;
 import com.example.tender.ui.activity.DiscoverFriendsActivity;
+import com.example.tender.ui.activity.Matching_step1;
+import com.example.tender.ui.activity.UserPreferencesActivity;
 import com.example.tender.utils.adapter.viewPagerAdapter.MatchesSubFragmentAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
@@ -103,7 +105,9 @@ public class MainMatchesFragment extends Fragment {
         userIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.toast(requireContext(), "User icon clicked");
+                //AppUtils.toast(requireContext(), "User icon clicked");
+                Intent intent = new Intent(requireContext(), UserPreferencesActivity.class);
+                startActivity(intent);
             }
         });
 
