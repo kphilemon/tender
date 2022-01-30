@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
 
-        <activity
-            android:name=".ui.activity.SplashActivity"
+        <activity android:name=".ui.activity.MainActivity"
             android:exported="true"/>
 
         <activity android:name=".ui.activity.SignUpActivity"
@@ -24,7 +23,7 @@
             android:exported="true" />
       
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
