@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".application.SignUpActivity">
+    tools:context=".ui.activity.SignUpActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -16,44 +16,39 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="@dimen/margin_24"
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="Welcome!"
-        android:textSize="32sp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_alignLeft="@+id/text1"/>
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/welcome"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:text="@string/signup_title"
         android:textColor="@color/black"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="50dp"
-        android:text="To begin, pick your username. Your friends will
-        \nuse this username to find and add you."
-        android:textSize="15sp"
-        />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/textview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text1"
-        android:layout_alignLeft="@+id/text1"
         android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/margin_24"
         android:layout_marginTop="10dp"
-        android:text="Pick wisely because once you get a name, you
-        \ncan't change it."
+        android:layout_marginEnd="@dimen/margin_24"
+        android:text="@string/pick_wisely"
         android:textColor="@color/black"
         android:textSize="15sp" />
-
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textinputlayout"
@@ -61,26 +56,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textview2"
-        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/text1"
         android:layout_alignRight="@+id/text1"
+        android:layout_marginTop="@dimen/margin_20"
         app:boxStrokeColor="#BFBFBF"
+        app:errorEnabled="true"
         app:errorIconDrawable="@drawable/wrong"
-        app:errorTextColor="@color/red"
-        app:errorEnabled="true">
+        app:errorTextColor="@color/red">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
 
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/confirm_button"
         android:layout_width="330dp"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/margin_50"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_gravity="bottom"
@@ -91,7 +86,7 @@
         android:text="Confirm"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
 
 

@@ -9,28 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
+
         <activity
-            android:name=".ui.activity.MainActivity"
-            android:exported="true">
+            android:name=".ui.activity.SplashActivity"
+            android:exported="true"/>
 
-        </activity>
-        <activity android:name=".application.SignUpActivity"
-            android:exported="true">
+        <activity android:name=".ui.activity.SignUpActivity"
+            android:exported="true"/>
 
-        </activity>
-        <activity android:name=".application.SplashActivity"
-            android:exported="true">
+        <activity android:name=".ui.activity.UserPreferencesActivity"
+            android:exported="true"/>
 
-        </activity>
-        <activity android:name=".application.UserPreferencesActivity"
+        <activity android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
 
         <meta-data
