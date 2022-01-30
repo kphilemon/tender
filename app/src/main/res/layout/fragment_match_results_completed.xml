@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.fragments.MatchResultsCompletedFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_tender"
+        android:scaleType="centerCrop"
+        android:alpha="0.15"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:logo="@drawable/ic_back_arrow"
+        app:title="Matching Results"
+        app:titleMarginStart="@dimen/margin_40" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_toolbar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/swiping_candidatesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16"
+            android:fontFamily="sans-serif-medium"
+            android:text="Lunch with Spider-Man and Ironman"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!--        TODO: Inflate the com_swipe_card_item View inside Frame layout-->
+        <!--        TODO: Remove the extra frame layouts in the inflated layout before inflating it into this frame -->
+        <FrameLayout
+            android:id="@+id/swipe_item_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/margin_20"
+            android:layout_weight="1">
+            <!--            TODO: ONLY FOR EXAMPLE
+                            TODO: U NEED TO DO THIS PROGRAMMATICALLY,
+                            TODO: REMOVE IT AFTER REFERENCE -->
+            <include layout="@layout/com_swipe_card_item"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/most_swipesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KFC got the most swipes !"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_margin="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/button_completed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mark as completed"
+            android:textAllCaps="false"
+            android:clickable="true"
+            android:layout_margin="@dimen/margin_20"
+            android:focusable="true"
+            android:textSize="18sp"
+            android:letterSpacing="0.05"
+            android:backgroundTint="@color/white"
+            android:textAlignment="center"
+            app:rippleColor="@color/lightGray"
+            android:textColor="@color/darkPink"
+            app:strokeColor="@color/darkPink"
+            app:strokeWidth="1.5dp"
+            android:contentDescription="Mark as completed" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
