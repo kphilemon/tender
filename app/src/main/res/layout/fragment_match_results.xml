@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.MatchResultsFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
     <ImageView
         android:layout_width="match_parent"
@@ -41,8 +42,11 @@
         android:id="@+id/matching_resultsRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/dimen_16"
-        android:layout_below="@id/swiping_candidatesTV"/>
+        android:layout_below="@id/swiping_candidatesTV"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16" />
 
 
 </RelativeLayout>

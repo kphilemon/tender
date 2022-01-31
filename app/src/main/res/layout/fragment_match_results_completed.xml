@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.MatchResultsCompletedFragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
 
     <ImageView
         android:layout_width="match_parent"
@@ -49,12 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="@dimen/margin_20"
-            android:layout_weight="1">
-            <!--            TODO: ONLY FOR EXAMPLE
-                            TODO: U NEED TO DO THIS PROGRAMMATICALLY,
-                            TODO: REMOVE IT AFTER REFERENCE -->
-            <include layout="@layout/com_swipe_card_item"/>
-        </FrameLayout>
+            android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/most_swipesTV"

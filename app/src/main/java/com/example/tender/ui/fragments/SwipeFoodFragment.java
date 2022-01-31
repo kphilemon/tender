@@ -1,5 +1,7 @@
 package com.example.tender.ui.fragments;
 
+import static com.example.tender.ui.activity.MainActivity.FRAGMENT_OPENED_KEY;
+
 import android.graphics.Path;
 import android.os.Bundle;
 
@@ -20,6 +22,7 @@ import android.widget.Toast;
 import com.example.tender.R;
 import com.example.tender.model.ActiveMatches;
 import com.example.tender.utils.adapter.recyclerAdapter.CardsSwipeAdapter;
+import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
@@ -31,12 +34,14 @@ import com.yuyakaido.android.cardstackview.SwipeAnimationSetting;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class SwipeFoodFragment extends Fragment implements CardStackListener {
     private CardStackView cardStackView;
     private CardStackLayoutManager manager;
     private FloatingActionButton skip,like;
     private CardsSwipeAdapter adapter;
+    private List<ActiveMatches> items;
     public SwipeFoodFragment() {
         // Required empty public constructor
     }
@@ -50,8 +55,7 @@ public class SwipeFoodFragment extends Fragment implements CardStackListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_swipe_food, container, false);
-        manager = new CardStackLayoutManager(getContext(),this);
-        adapter = new CardsSwipeAdapter(Arrays.asList(
+        items = Arrays.asList(
                 createMatches("China", "Kyoto", "https://images.unsplash.com/photo-1493997181344-712f2f19d87a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600"),
                 createMatches("LOL", "Shenanigans", "https://source.unsplash.com/NYyCqdBOKwc/600x800"),
                 createMatches("BLAH", "Loving & tasty", "https://source.unsplash.com/buF62ewDLcQ/600x800"),
@@ -62,7 +66,9 @@ public class SwipeFoodFragment extends Fragment implements CardStackListener {
                 createMatches("Eiffel Tower", "Paris", "https://source.unsplash.com/HN-5Z6AmxrM/600x800"),
                 createMatches("Big Ben", "London", "https://source.unsplash.com/CdVAUADdqEc/600x800"),
                 createMatches("Great Wall of China", "China", "https://source.unsplash.com/AWh9C-QjhE4/600x800")
-        ), requireContext());
+        );
+        manager = new CardStackLayoutManager(getContext(),this);
+        adapter = new CardsSwipeAdapter(items, requireContext());
         cardStackView = v.findViewById(R.id.card_stack_view);
         cardStackView.setLayoutManager(manager);
         cardStackView.setAdapter(adapter);
@@ -110,22 +116,35 @@ public class SwipeFoodFragment extends Fragment implements CardStackListener {
         @Override
         public void onCardSwiped (Direction direction){
            if(direction == Direction.Left)
-               Toast.makeText(requireContext(), "You Skipped me. I am disappointed", Toast.LENGTH_LONG).show();
-           else if(direction == Direction.Right)
-               Toast.makeText(requireContext(), "You like me? I like you too", Toast.LENGTH_LONG).show();
-           if(manager.getTopPosition() == adapter.getItemCount()) {
+               AppUtils.toast(requireContext(), "You have only "+(adapter.getItemCount() - manager.getTopPosition())+" card swipes remaining");
+           else if(direction == Direction.Right){
+               AppUtils.toast(requireContext(), "Please wait while we redirect you to next page...");
                MatchResultsFragment fg = new MatchResultsFragment();
+               Bundle b = getActiveMatchesArguments(items.get(manager.getTopPosition()));
+               fg.setArguments(b);
                // Delay so that swipe animation is completed successfully
                new Handler().postDelayed(() -> requireActivity().getSupportFragmentManager().beginTransaction()
-                       .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_out_right, android.R.anim.slide_in_left)
-                       .replace(R.id.testing_fragment_mehdi, fg)
+                       .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                       .replace(R.id.fragment_container_steps, fg)
                        .addToBackStack(null)
-                       .commit(), 400);
+                       .commit(), 250);
+           }
+           if(manager.getTopPosition() == adapter.getItemCount()) {
                Toast.makeText(requireContext(), "I am sorry you are out of your choices", Toast.LENGTH_LONG).show();
            }
         }
 
-        @Override
+    private Bundle getActiveMatchesArguments(ActiveMatches match) {
+        Bundle b = new Bundle();
+        b.putString("matchImage", match.getMatchImage());
+        b.putString("matchTitle", match.getMatchTitle());
+        b.putString("matchDesc", match.getMatchDesc());
+        b.putString("matchTime", match.getMatchTime());
+        b.putInt("matchStatus", 1);
+        return b;
+    }
+
+    @Override
         public void onCardRewound () {
 
         }

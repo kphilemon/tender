@@ -1,5 +1,7 @@
 package com.example.tender.ui.fragments;
 
+import static com.example.tender.ui.activity.MainActivity.FRAGMENT_OPENED_KEY;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -110,7 +112,13 @@ public class MainFriendsFragment extends Fragment {
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.toast(requireContext(), "Search icon clicked");
+                AppUtils.toast(requireContext(), "Welcome to the discovery. Swipe Left or Right to proceed");
+                SwipeFoodFragment fg = new SwipeFoodFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                        .replace(R.id.fragment_container_steps, fg, FRAGMENT_OPENED_KEY)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }
