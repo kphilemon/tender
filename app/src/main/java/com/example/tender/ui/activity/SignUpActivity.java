@@ -3,17 +3,24 @@ package com.example.tender.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.example.tender.R;
 import com.example.tender.utils.appUtils.AppUtils;
@@ -23,12 +30,12 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    TextInputLayout textInputLayout;
-    TextInputEditText user;
+    EditText userNameTv;
+    TextView validMessage;
 
     Button confirm;
 
-    boolean allgood = false;
+    boolean isUserNameValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +43,11 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         confirm = findViewById(R.id.confirm_button);
-        textInputLayout = findViewById(R.id.textinputlayout);
-        user = findViewById(R.id.username);
+        userNameTv = findViewById(R.id.sample_username_et);
+        validMessage = findViewById(R.id.validation_message_tv);
 
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validate();
-            }
-        });
+        goToMainActivity();
+        checkUserName();
 
         TextView view = findViewById(R.id.textview2);
         String text = "Pick wisely because once you get a name, you\n" +
@@ -69,45 +72,78 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public void validate(){
-        if(!validusername()){
-            AppUtils.toast(SignUpActivity.this, "Invalid username");
-        } else {
-            //AppUtils.toast(SignUpActivity.this, "Successfully registered username");
-            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        }
+    private void goToMainActivity() {
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isUserNameValid){
+                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    AppUtils.toast(SignUpActivity.this, "Please enter a valid username");
+                }
+            }
+        });
     }
 
-    private boolean validusername() {
+    private void checkUserName() {
 
-        String val = textInputLayout.getEditText().getText().toString().trim();
+        userNameTv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-        if (val.isEmpty()) {
-            textInputLayout.setError("Field cannot be empty");
-            return false;
-        } else if (val.length() < 7) {
-            textInputLayout.setError("Minimum 7 characters required");
-            return false;
-        } else if (!isStringOnlyAlphabet(val)) {
-            textInputLayout.setError("Invalid Username");
-            return false;
-        } else if (val.length() > 25) {
-            textInputLayout.setError("Username is too large");
-            return false;
-        } else {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-            textInputLayout.setError(null);
-            textInputLayout.setErrorEnabled(false);
-            textInputLayout.setBoxStrokeColor(getResources().getColor(R.color.green));
+                String val = userNameTv.getText().toString().trim();
+                if (val.isEmpty()) {
+                    validMessage.setText(R.string.empty_field);
+                    formatValidMessage(false);
+                } else if (val.length() < 7) {
+                    validMessage.setText(R.string.minimum_seven_char);
+                    formatValidMessage(false);
+                } else if (!isStringOnlyAlphabet(val)) {
+                    validMessage.setText(R.string.invalid_username);
+                    formatValidMessage(false);
+                } else if (val.length() > 25) {
+                    validMessage.setText(R.string.username_limit_25);
+                    formatValidMessage(false);
+                } else if (val.length() >= 7 && val.length() <= 25 && isStringOnlyAlphabet(val)) {
+                    validMessage.setText(R.string.valid_username);
+                    formatValidMessage(true);
+                }
+            }
 
-            return true;
-        }
-
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
     }
 
+    private void formatValidMessage(boolean flag) {
+        if (flag) {
+            isUserNameValid = true;
+            validMessage.setTextColor(getResources().getColor(R.color.green));
+            userNameTv.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    0,
+                    R.drawable.ic_valid_tick,
+                    0
+            );
+        } else {
+            isUserNameValid = false;
+            validMessage.setTextColor(getResources().getColor(R.color.red));
+            userNameTv.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    0,
+                    R.drawable.wrong,
+                    0
+            );
+        }
+    }
 
     private static boolean isStringOnlyAlphabet(String str) {
         return ((str != null)

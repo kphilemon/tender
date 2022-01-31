@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.tender.R;
 import com.example.tender.ui.activity.DiscoverFriendsActivity;
 import com.example.tender.ui.activity.Matching_step1;
+import com.example.tender.ui.activity.UserPreferencesActivity;
 import com.example.tender.utils.adapter.viewPagerAdapter.FriendsSubFragmentAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
@@ -102,7 +103,7 @@ public class MainFriendsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //AppUtils.toast(requireContext(), "User icon clicked");
-                Intent intent = new Intent(requireContext(), Matching_step1.class);
+                Intent intent = new Intent(requireContext(), UserPreferencesActivity.class);
                 startActivity(intent);
             }
         });
@@ -110,8 +111,10 @@ public class MainFriendsFragment extends Fragment {
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.toast(requireContext(), "Search icon clicked");
+                Intent intent = new Intent(requireContext(), DiscoverFriendsActivity.class);
+                startActivity(intent);
             }
         });
+
     }
 }

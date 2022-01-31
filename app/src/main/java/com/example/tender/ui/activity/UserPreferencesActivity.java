@@ -1,5 +1,6 @@
 package com.example.tender.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,6 @@ public class UserPreferencesActivity extends AppCompatActivity implements Custom
     Button buttonShow, buttonshow1, submit, loginBtn, deleteBtn;
     TextView name, about, content;
     AlertDialog dialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

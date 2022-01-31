@@ -17,5 +17,17 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.todkars.shimmer.ShimmerRecyclerView
+        android:id="@+id/discover_friends_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/discover_friends_app_bar"
+        android:layout_marginStart="@dimen/margin_8"
+        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginBottom="@dimen/margin_5"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:orientation="vertical"
+        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
+
 
 </RelativeLayout>

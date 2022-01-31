@@ -119,14 +119,13 @@ public class MainMatchesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 goToDiscoverFriends();
-                //AppUtils.toast(requireContext(), "FAB clicked");
             }
         });
     }
 
     /** Called when the user taps the Send button */
     public void goToDiscoverFriends() {
-        Intent intent = new Intent(requireContext(), DiscoverFriendsActivity.class);
+        Intent intent = new Intent(requireContext(), Matching_step1.class);
         startActivity(intent);
     }
 
