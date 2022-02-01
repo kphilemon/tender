@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 
@@ -29,7 +30,6 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
     private FloatingActionButton skip,like;
     private CardsSwipeAdapter adapter;
     private List<ActiveMatches> items;
-    private static boolean FLAG_TO_INTENT = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +97,13 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
             AppUtils.toast(this, "You have only "+(adapter.getItemCount() - manager.getTopPosition())+" card swipes remaining");
         else if(direction == Direction.Right){
             AppUtils.toast(this, "Please wait while we redirect you to next page...");
-            FLAG_TO_INTENT = true;
+            // A little wait of about 250ms to complete swipe card animation
+            new Handler().postDelayed(() -> {
+                Intent newI = new Intent(SwipeActivity.this, MatchResultsPendingActivity.class);
+                // Put the match object in bundle & pass it to next activity
+                newI.putExtra("MATCHES", getActiveMatchesArguments(items.get(manager.getTopPosition())));
+                startActivity(newI);
+            }, 250);
         }
         if(manager.getTopPosition() == adapter.getItemCount()) {
             AppUtils.toast(this, "I am sorry you are out of your choices");
@@ -130,10 +136,5 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
 
     @Override
     public void onCardDisappeared(View view, int position) {
-        if(!FLAG_TO_INTENT) return;
-        Intent newI = new Intent(SwipeActivity.this, MatchResultsPendingActivity.class);
-        // Put the match object in bundle & pass it to next activity
-        newI.putExtra("MATCHES", getActiveMatchesArguments(items.get(manager.getTopPosition())));
-        startActivity(newI);
     }
 }

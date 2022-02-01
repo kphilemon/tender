@@ -5,12 +5,9 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.tender.R;
-import com.example.tender.ui.fragments.SwipeFoodFragment;
 import com.example.tender.utils.adapter.viewPagerAdapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
