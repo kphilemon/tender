@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.activity.MatchResultsPendingActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_tender"
+        android:scaleType="centerCrop"
+        android:alpha="0.2"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:logo="@drawable/ic_back_arrow"
+        app:title="Matching Results"
+        app:titleMarginStart="@dimen/margin_40" />
+
+    <TextView
+        android:id="@+id/swiping_candidatesTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="Lunch with Spider-Man and Ironman"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/dimen_16"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="24sp"/>
+
+    <!--    TODO: Inflate the list_item_row_general.xml in here-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/matching_resultsRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/swiping_candidatesTV"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16" />
+
+</RelativeLayout>
