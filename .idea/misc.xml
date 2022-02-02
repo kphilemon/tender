@@ -37,6 +37,7 @@
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_swipe.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_user_preference.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/activity_user_preferences.xml" value="0.4" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/com_swipe_card_item.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_friends_all_tab.xml" value="0.35260416666666666" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_friends_requests_tab.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_main_friends.xml" value="0.264" />
@@ -44,6 +45,9 @@
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_match_results_completed.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_matches_active_tab.xml" value="0.264" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/fragment_matches_completed_tab.xml" value="0.264" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_active_match.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_add_friends.xml" value="0.36666666666666664" />
+        <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/list_item_row_general.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/matching_step2.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/tab_title.xml" value="0.36666666666666664" />
         <entry key="..\:/01PrasanthCodes/MAD_Group_Project/app/src/main/res/layout/toolbar_with_actions.xml" value="0.36666666666666664" />
@@ -98,7 +102,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

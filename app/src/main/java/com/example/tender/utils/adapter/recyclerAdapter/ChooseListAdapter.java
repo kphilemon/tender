@@ -20,9 +20,9 @@ import java.util.ArrayList;
 public class ChooseListAdapter extends RecyclerView.Adapter<ChooseListAdapter.LinearViewHolder> {
     @NonNull
     public OnItemClickListener_choose nOnItemClickListener = null;
-    private ArrayList<String> a;
-    private ArrayList<String> b;
-    private ArrayList c;
+    private final ArrayList<String> a;
+    private final ArrayList<String> b;
+    private final ArrayList c;
     private LayoutInflater mlayoutInflater = null;
 
 //    String[] names = {"Ironman","Hulk","Lee","Bobb","fafat","thhh","asdf"};
@@ -71,10 +71,10 @@ public class ChooseListAdapter extends RecyclerView.Adapter<ChooseListAdapter.Li
 
 
     class LinearViewHolder extends RecyclerView.ViewHolder{
-        private ImageView image_info_photo_choose;
-        private TextView text_info_name_choose;
-        private TextView text_info_sign_choose;
-        private ImageView Btn_close;
+        private final ImageView image_info_photo_choose;
+        private final TextView text_info_name_choose;
+        private final TextView text_info_sign_choose;
+        private final ImageView Btn_close;
 
         public LinearViewHolder(@NonNull View itemView) {
             super(itemView);

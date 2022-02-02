@@ -44,9 +44,9 @@ public class CardsSwipeAdapter extends RecyclerView.Adapter<CardsSwipeAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView foodImage;
-        private TextView foodName;
-        private TextView foodSubtitle;
+        private final ImageView foodImage;
+        private final TextView foodName;
+        private final TextView foodSubtitle;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
