@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class FriendsAllRvAdapter extends RecyclerView.Adapter<FriendsAllRvAdapter.MyViewHolder> {
 
     private final RecyclerViewInterface recyclerViewInterface;
-    private ArrayList<User> userList;
+    private final ArrayList<User> userList;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         private final TextView mainTv;

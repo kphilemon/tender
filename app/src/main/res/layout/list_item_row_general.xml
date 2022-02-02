@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
         android:id="@+id/image"
         android:layout_width="@dimen/margin_80"
         android:layout_height="@dimen/margin_80"
-        android:background="@drawable/tab_background"
-        android:backgroundTint="@color/darkPink"
+        android:padding="@dimen/margin_5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

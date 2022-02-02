@@ -35,29 +35,37 @@
             android:id="@+id/swiping_candidatesTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_24"
+            android:layout_marginStart="@dimen/margin_24"
+            android:layout_marginEnd="@dimen/margin_24"
+            android:layout_marginTop="@dimen/margin_24"
             android:fontFamily="@font/source_sans_pro_bold"
             android:text="Lunch with Spider-Man and Ironman"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-       <FrameLayout
+        <FrameLayout
             android:id="@+id/swipe_item_result"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_15"
+            android:layout_weight="1"
+            android:elevation="@dimen/margin_10"
             android:padding="@dimen/margin_20"
-            android:layout_weight="1"/>
+            android:translationZ="@dimen/margin_10" />
 
         <TextView
             android:id="@+id/most_swipesTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="KFC got the most swipes !"
+            android:layout_marginBottom="@dimen/margin_30"
+            android:maxLines="2"
+            android:layout_marginStart="@dimen/margin_24"
+            android:layout_marginEnd="@dimen/margin_24"
             android:fontFamily="@font/source_sans_pro"
+            android:text="KFC got the most swipes !"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:layout_margin="30dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -68,14 +76,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/margin_30"
             android:background="@drawable/rounded_bg_white"
-            android:translationZ="@dimen/margin_10"
-            android:textColor="@color/darkPink"
             android:fontFamily="@font/source_sans_pro"
-            android:textAllCaps="false"
-            android:textSize="@dimen/text_18sp"
             android:letterSpacing="0.02"
             android:text="Mark as completed"
-            />
+            android:textAllCaps="false"
+            android:textColor="@color/darkPink"
+            android:textSize="@dimen/text_18sp"
+            android:translationZ="@dimen/margin_10" />
 
     </LinearLayout>
 </RelativeLayout>

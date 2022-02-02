@@ -20,9 +20,9 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Line
     public OnItemClickListener mOnItemClickListener = null;
 
 
-    private ArrayList<String> a;
-    private ArrayList<String> b;
-    private ArrayList c;
+    private final ArrayList<String> a;
+    private final ArrayList<String> b;
+    private final ArrayList c;
 
     private LayoutInflater mlayoutInflater = null;
 
@@ -86,8 +86,9 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Line
     }
 
     class LinearViewHolder extends RecyclerView.ViewHolder {
-        private ImageView image_info_photo;
-        private TextView text_info_name, text_info_sign;
+        private final ImageView image_info_photo;
+        private final TextView text_info_name;
+        private final TextView text_info_sign;
 
         public LinearViewHolder(View itemView){
             super(itemView);
