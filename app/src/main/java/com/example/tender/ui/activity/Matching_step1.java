@@ -6,13 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.tender.R;
 import com.example.tender.utils.adapter.recyclerAdapter.ChooseListAdapter;
 import com.example.tender.utils.adapter.recyclerAdapter.StoreListAdapter;

@@ -1,5 +1,6 @@
 package com.example.tender.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +55,7 @@ public class Matching_step2 extends AppCompatActivity {
             public void onClick(View v) {
                 String groupname = editText.getText().toString();
                 Toast.makeText(Matching_step2.this,"name: "+ groupname,Toast.LENGTH_LONG).show();
+                startActivity(new Intent(Matching_step2.this, SwipeActivity.class));
             }
         });
 

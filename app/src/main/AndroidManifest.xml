@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tender">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
-
-        <activity android:name=".ui.activity.MainActivity"
-            android:exported="true"/>
-
-        <activity android:name=".ui.activity.SignUpActivity"
-            android:exported="true"/>
-
-        <activity android:name=".ui.activity.UserPreferencesActivity"
-            android:exported="true"/>
-
-        <activity android:name=".ui.activity.DiscoverFriendsActivity"
+        <activity
+            android:name=".ui.activity.MatchResultsCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MatchResultsPendingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.SwipeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MainActivity"
             android:exported="true" />
-      
+        <activity
+            android:name=".ui.activity.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.UserPreferencesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.DiscoverFriendsActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.activity.SplashActivity"
             android:exported="true">
@@ -31,7 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-      
         <activity
             android:name=".ui.activity.Matching_step1"
             android:exported="true" />

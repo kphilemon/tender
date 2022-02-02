@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.activity.MatchResultsCompletedActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_tender"
+        android:scaleType="centerCrop"
+        android:alpha="0.1"/>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/match_result_completed_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/match_result_completed_app_toolbar"
+            layout="@layout/toolbar_with_back_arrow" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/match_result_completed_app_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/swiping_candidatesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_24"
+            android:fontFamily="@font/source_sans_pro_bold"
+            android:text="Lunch with Spider-Man and Ironman"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+       <FrameLayout
+            android:id="@+id/swipe_item_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/margin_20"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/most_swipesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KFC got the most swipes !"
+            android:fontFamily="@font/source_sans_pro"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_margin="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/mark_as_completed_btn"
+            android:layout_width="@dimen/margin_300"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_30"
+            android:background="@drawable/rounded_bg_white"
+            android:translationZ="@dimen/margin_10"
+            android:textColor="@color/darkPink"
+            android:fontFamily="@font/source_sans_pro"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_18sp"
+            android:letterSpacing="0.02"
+            android:text="Mark as completed"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
