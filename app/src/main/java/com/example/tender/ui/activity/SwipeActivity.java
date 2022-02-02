@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.widget.ImageView;
+import android.widget.SearchView;
 
 import com.example.tender.R;
 import com.example.tender.model.ActiveMatches;
 import com.example.tender.utils.adapter.recyclerAdapter.CardsSwipeAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
@@ -34,6 +37,9 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
+
+        setupToolBar();
+
         items = Arrays.asList(
                 createMatches("China", "Kyoto", "https://images.unsplash.com/photo-1493997181344-712f2f19d87a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600"),
                 createMatches("LOL", "Shenanigans", "https://source.unsplash.com/NYyCqdBOKwc/600x800"),
@@ -118,6 +124,18 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
         b.putString("matchTime", match.getMatchTime());
         b.putInt("matchStatus", 1);
         return b;
+    }
+
+    private void setupToolBar() {
+        AppBarLayout toolbar = findViewById(R.id.swipe_activity_toolbar);
+        ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
+
+        backButtonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
