@@ -23,7 +23,10 @@ public class MatchResultsPendingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match_results_pending);
 
         recyclerView = findViewById(R.id.matching_results_pending_RV);
-        recyclerView.showShimmer();
+
+        // Use while waiting for data and then hide the shimmer
+        // recyclerView.showShimmer();
+        // recyclerView.hideShimmer();
 
         setupToolBar();
 
