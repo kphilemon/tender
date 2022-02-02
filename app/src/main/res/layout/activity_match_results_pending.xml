@@ -10,42 +10,48 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_tender"
+        android:alpha="0.1"
         android:scaleType="centerCrop"
-        android:alpha="0.2"/>
+        android:src="@drawable/bg_tender" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/app_toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/match_result_pending_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:logo="@drawable/ic_back_arrow"
-        app:title="Matching Results"
-        app:titleMarginStart="@dimen/margin_40" />
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/match_result_pending_app_toolbar"
+            layout="@layout/toolbar_with_back_arrow" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/swiping_candidatesTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_toolbar"
+        android:layout_below="@id/match_result_pending_app_bar"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/dimen_24"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginEnd="@dimen/dimen_24"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:fontFamily="@font/source_sans_pro_bold"
         android:text="Lunch with Spider-Man and Ironman"
-        android:textStyle="bold"
-        android:layout_margin="@dimen/dimen_16"
         android:textColor="@color/black"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!--    TODO: Inflate the list_item_row_general.xml in here-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/matching_resultsRV"
+    <com.todkars.shimmer.ShimmerRecyclerView
+        android:id="@+id/matching_results_pending_RV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/swiping_candidatesTV"
-        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginStart="@dimen/dimen_24"
         android:layout_marginTop="@dimen/dimen_16"
-        android:layout_marginEnd="@dimen/dimen_16"
-        android:layout_marginBottom="@dimen/dimen_16" />
+        android:layout_marginEnd="@dimen/dimen_24"
+        android:layout_marginBottom="@dimen/dimen_16"
+        app:shimmer_recycler_item_count="5"
+        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
 
 </RelativeLayout>

@@ -12,22 +12,21 @@
         android:layout_height="match_parent"
         android:src="@drawable/bg_tender"
         android:scaleType="centerCrop"
-        android:alpha="0.15"/>
+        android:alpha="0.1"/>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/app_toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/match_result_completed_app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:logo="@drawable/ic_back_arrow"
-        app:title="Matching Results"
-        app:titleMarginStart="@dimen/margin_40" />
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/match_result_completed_app_toolbar"
+            layout="@layout/toolbar_with_back_arrow" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_toolbar"
+        android:layout_below="@id/match_result_completed_app_bar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
@@ -36,8 +35,8 @@
             android:id="@+id/swiping_candidatesTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_16"
-            android:fontFamily="sans-serif-medium"
+            android:layout_margin="@dimen/dimen_24"
+            android:fontFamily="@font/source_sans_pro_bold"
             android:text="Lunch with Spider-Man and Ironman"
             android:textColor="@color/black"
             android:textSize="24sp"
@@ -55,30 +54,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="KFC got the most swipes !"
+            android:fontFamily="@font/source_sans_pro"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:layout_margin="30dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/button_completed"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/mark_as_completed_btn"
+            android:layout_width="@dimen/margin_300"
             android:layout_height="wrap_content"
-            android:text="Mark as completed"
-            android:textAllCaps="false"
-            android:clickable="true"
-            android:layout_margin="@dimen/margin_20"
-            android:focusable="true"
-            android:textSize="18sp"
-            android:letterSpacing="0.05"
-            android:backgroundTint="@color/white"
-            android:textAlignment="center"
-            app:rippleColor="@color/lightGray"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_30"
+            android:background="@drawable/rounded_bg_white"
+            android:translationZ="@dimen/margin_10"
             android:textColor="@color/darkPink"
-            app:strokeColor="@color/darkPink"
-            app:strokeWidth="1.5dp"
-            android:contentDescription="Mark as completed" />
+            android:fontFamily="@font/source_sans_pro"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_18sp"
+            android:letterSpacing="0.02"
+            android:text="Mark as completed"
+            />
 
     </LinearLayout>
 </RelativeLayout>
