@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tender.R;
-import com.example.tender.ui.activity.Matching_step1;
+import com.example.tender.ui.activity.MatchSelectFriendsActivity;
 
 import java.util.ArrayList;
 
@@ -45,9 +45,9 @@ public class ChooseListAdapter extends RecyclerView.Adapter<ChooseListAdapter.Li
 
     @Override
     public void onBindViewHolder(@NonNull LinearViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.image_info_photo_choose.setImageResource((Integer) Matching_step1.chooseimageDatas.get(position));
-        holder.text_info_name_choose.setText(Matching_step1.chooseusernameData.get(position));
-        holder.text_info_sign_choose.setText(Matching_step1.chooseusersignData.get(position));
+        holder.image_info_photo_choose.setImageResource((Integer) MatchSelectFriendsActivity.chooseimageDatas.get(position));
+        holder.text_info_name_choose.setText(MatchSelectFriendsActivity.chooseusernameData.get(position));
+        holder.text_info_sign_choose.setText(MatchSelectFriendsActivity.chooseusersignData.get(position));
 
         if(null != nOnItemClickListener){
 

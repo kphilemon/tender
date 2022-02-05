@@ -11,27 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tender">
-        <activity
-            android:name=".ui.activity.MatchResultsCompletedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.MatchResultsPendingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.SwipeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.UserPreferencesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.DiscoverFriendsActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.activity.SplashActivity"
             android:exported="true">
@@ -42,10 +22,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.Matching_step1"
+            android:name=".ui.activity.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.Matching_step2"
+            android:name=".ui.activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MatchSelectFriendsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MatchEnterNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.SwipeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MatchResultsPendingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MatchResultsCompletedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.UserPreferencesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.DiscoverFriendsActivity"
             android:exported="false" />
 
         <meta-data

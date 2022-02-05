@@ -17,10 +17,8 @@ import android.widget.TextView;
 
 import com.example.tender.R;
 import com.example.tender.ui.activity.DiscoverFriendsActivity;
-import com.example.tender.ui.activity.Matching_step1;
 import com.example.tender.ui.activity.UserPreferencesActivity;
 import com.example.tender.utils.adapter.viewPagerAdapter.FriendsSubFragmentAdapter;
-import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
