@@ -69,8 +69,8 @@ public class FriendsAllRvAdapter extends RecyclerView.Adapter<FriendsAllRvAdapte
     public void onBindViewHolder(@NonNull FriendsAllRvAdapter.MyViewHolder holder, int position) {
 
         final User user = userList.get(position);
-        holder.mainTv.setText(user.getName());
-        holder.subtitleTv.setText(user.getInfo());
+        holder.mainTv.setText(user.getDisplayName());
+        holder.subtitleTv.setText(user.getAbout());
 
     }
 

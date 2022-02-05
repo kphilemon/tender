@@ -66,21 +66,21 @@ public class FriendsAllTabFragment extends Fragment implements RecyclerViewInter
      * Dummy data set
      */
     private void setupUserInfo() {
-        userList.add(new User("Iron Man", "Awesome man"));
-        userList.add(new User("Spider Man", "Awesome bug"));
-        userList.add(new User("Thor", "Thunder God"));
-        userList.add(new User("Hulk", "Smasher"));
-        userList.add(new User("Hulk1", "Smasher"));
-        userList.add(new User("Hulk2", "Smasher"));
-        userList.add(new User("Hulk3", "Smasher"));
-        userList.add(new User("Hulk4", "Smasher"));
-        userList.add(new User("Hulk5", "Smasher"));
+//        userList.add(new User("Iron Man", "Awesome man"));
+//        userList.add(new User("Spider Man", "Awesome bug"));
+//        userList.add(new User("Thor", "Thunder God"));
+//        userList.add(new User("Hulk", "Smasher"));
+//        userList.add(new User("Hulk1", "Smasher"));
+//        userList.add(new User("Hulk2", "Smasher"));
+//        userList.add(new User("Hulk3", "Smasher"));
+//        userList.add(new User("Hulk4", "Smasher"));
+//        userList.add(new User("Hulk5", "Smasher"));
     }
 
     void createDialog(int position) {
         MaterialAlertDialogBuilder mad = new MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogMaterialTheme);
         mad.setTitle("Remove friend");
-        mad.setMessage("Confirm unfriend " + userList.get(position).getName() + " from your friends list?");
+        mad.setMessage("Confirm unfriend " + userList.get(position).getDisplayName() + " from your friends list?");
         mad.setIcon(R.drawable.unfollow);
 
         mad.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {

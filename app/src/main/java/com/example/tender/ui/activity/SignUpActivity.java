@@ -3,162 +3,202 @@ package com.example.tender.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import com.example.tender.R;
+import com.example.tender.model.User;
 import com.example.tender.utils.appUtils.AppUtils;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Collections;
 
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText userNameTv;
-    TextView validMessage;
+    private GoogleSignInClient googleSignInClient;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore db;
 
-    Button confirm;
-
-    boolean isUserNameValid = false;
+    private EditText usernameInput;
+    private TextView validationMsg;
+    private ProgressBar inputProgressBar;
+    private Button confirmButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        confirm = findViewById(R.id.confirm_button);
-        userNameTv = findViewById(R.id.sample_username_et);
-        validMessage = findViewById(R.id.validation_message_tv);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.web_client_id))
+                .requestEmail()
+                .build();
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+        firebaseAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
-        goToMainActivity();
-        checkUserName();
+        setupToolbar();
 
-        TextView view = findViewById(R.id.textview2);
-        String text = "Pick wisely because once you get a name, you\n" +
-                "can't change it.";
-
-        // bold part of the text
-        SpannableString ss = new SpannableString(text);
-        StyleSpan bold = new StyleSpan(Typeface.BOLD);
-        ss.setSpan(bold, 44, 58, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        view.setText(ss);
-
-        // toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-
-    }
-
-    private void goToMainActivity() {
-        confirm.setOnClickListener(new View.OnClickListener() {
+        inputProgressBar = findViewById(R.id.input_progress_bar);
+        validationMsg = findViewById(R.id.validation_message);
+        usernameInput = findViewById(R.id.username_input);
+        usernameInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                if (isUserNameValid){
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    AppUtils.toast(SignUpActivity.this, "Please enter a valid username");
-                }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                validateUsername();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
             }
         });
-    }
 
-    private void checkUserName() {
+        confirmButton = findViewById(R.id.confirm_button);
+        confirmButton.setOnClickListener(v -> createUserProfile());
 
-        userNameTv.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                String val = userNameTv.getText().toString().trim();
-                if (val.isEmpty()) {
-                    validMessage.setText(R.string.empty_field);
-                    formatValidMessage(false);
-                } else if (val.length() < 7) {
-                    validMessage.setText(R.string.minimum_seven_char);
-                    formatValidMessage(false);
-                } else if (!isStringOnlyAlphabet(val)) {
-                    validMessage.setText(R.string.invalid_username);
-                    formatValidMessage(false);
-                } else if (val.length() > 25) {
-                    validMessage.setText(R.string.username_limit_25);
-                    formatValidMessage(false);
-                } else if (val.length() >= 7 && val.length() <= 25 && isStringOnlyAlphabet(val)) {
-                    validMessage.setText(R.string.valid_username);
-                    formatValidMessage(true);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-    }
-
-    private void formatValidMessage(boolean flag) {
-        if (flag) {
-            isUserNameValid = true;
-            validMessage.setTextColor(getResources().getColor(R.color.green));
-            userNameTv.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    0,
-                    0,
-                    R.drawable.ic_valid_tick,
-                    0
-            );
-        } else {
-            isUserNameValid = false;
-            validMessage.setTextColor(getResources().getColor(R.color.red));
-            userNameTv.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    0,
-                    0,
-                    R.drawable.wrong,
-                    0
-            );
-        }
-    }
-
-    private static boolean isStringOnlyAlphabet(String str) {
-        return ((str != null)
-                && (!str.equals(""))
-                && (str.matches("^[a-zA-Z_.]*$")));
+        TextView instructions = findViewById(R.id.instructions_text);
+        SpannableString ss = new SpannableString("Pick wisely because once you get a name, you can't change it.");
+        ss.setSpan(new StyleSpan(Typeface.BOLD), 44, 58, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        instructions.setText(ss);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // handle arrow click here
-        if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                firebaseAuth.signOut();
+                googleSignInClient.signOut();
+                navigateTo(SplashActivity.class);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
+
+    private void createUserProfile() {
+        if (!validateUsername()) {
+            return;
+        }
+
+        String username = usernameInput.getText().toString().trim();
+        confirmButton.setEnabled(false);
+        inputProgressBar.setVisibility(View.VISIBLE);
+
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        assert firebaseUser != null;
+        User user = new User(
+                username,
+                firebaseUser.getDisplayName(),
+                "",
+                firebaseUser.getPhotoUrl().toString(),
+                Collections.emptyList(),
+                Collections.emptyList(),
+                false,
+                ""
+        );
+
+        db.collection("users").whereEqualTo("username", username)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (queryDocumentSnapshots.getDocuments().size() > 0) {
+                        setValidationMessage(getString(R.string.username_taken), true);
+                        confirmButton.setEnabled(true);
+                        inputProgressBar.setVisibility(View.INVISIBLE);
+                        return;
+                    }
+
+                    setValidationMessage(getString(R.string.username_valid), false);
+                    db.collection("users").document(firebaseUser.getUid())
+                            .set(user)
+                            .addOnSuccessListener(unused -> {
+                                inputProgressBar.setVisibility(View.INVISIBLE);
+                                navigateTo(MainActivity.class);
+                            })
+                            .addOnFailureListener(e -> {
+                                AppUtils.toast(SignUpActivity.this, "Error creating user");
+                                Log.w("TAG", "Error creating user", e);
+                                confirmButton.setEnabled(true);
+                                inputProgressBar.setVisibility(View.INVISIBLE);
+                            });
+                });
+    }
+
+    private boolean validateUsername() {
+        String s = usernameInput.getText().toString().trim();
+        validationMsg.setText("");
+        if (s.isEmpty()) {
+            setValidationMessage(getString(R.string.username_empty), true);
+            return false;
+        }
+        if (s.length() < 7) {
+            setValidationMessage(getString(R.string.username_too_short), true);
+            return false;
+        }
+        if (s.length() > 25) {
+            setValidationMessage(getString(R.string.username_exceeded_char_limit), true);
+            return false;
+        }
+        if (!s.matches("^[a-z0\\d._]+$")) {
+            setValidationMessage(getString(R.string.username_invalid), true);
+            return false;
+        }
+        return true;
+    }
+
+    private void setValidationMessage(String message, boolean hasError) {
+        validationMsg.setText(message);
+        validationMsg.setTextColor(getResources().getColor(hasError ? R.color.red : R.color.green));
+        if (hasError) {
+            usernameInput.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+        } else {
+            usernameInput.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_valid_tick, 0);
+        }
+    }
+
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    private void navigateTo(Class<?> cls) {
+        Intent intent = new Intent(SignUpActivity.this, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
 }
 
