@@ -119,6 +119,8 @@ public class SignUpActivity extends AppCompatActivity {
                 firebaseUser.getPhotoUrl().toString(),
                 Collections.emptyList(),
                 Collections.emptyList(),
+                Collections.emptyList(),
+                Collections.emptyList(),
                 false,
                 ""
         );

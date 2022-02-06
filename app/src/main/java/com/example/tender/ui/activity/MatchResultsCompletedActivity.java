@@ -45,9 +45,9 @@ public class MatchResultsCompletedActivity extends AppCompatActivity {
         v.findViewById(R.id.left_overlay).setVisibility(View.GONE);
         v.findViewById(R.id.top_overlay).setVisibility(View.GONE);
         v.findViewById(R.id.bottom_overlay).setVisibility(View.GONE);
-        Glide.with(this).load(match.getMatchImage()).into(((ImageView) v.findViewById(R.id.item_image)));
-        ((TextView) v.findViewById(R.id.item_label)).setText(match.getMatchTitle());
-        ((TextView) v.findViewById(R.id.item_sub_label)).setText(match.getMatchDesc());
+        Glide.with(this).load(match.getMatchImage()).into(((ImageView) v.findViewById(R.id.image)));
+        ((TextView) v.findViewById(R.id.title)).setText(match.getMatchTitle());
+        ((TextView) v.findViewById(R.id.subtitle)).setText(match.getMatchDesc());
         container.addView(v);
 
         // navigate to main activity

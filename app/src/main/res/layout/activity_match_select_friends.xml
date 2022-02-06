@@ -1,59 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MatchSelectFriendsActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/matching_step_1_app_bar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include
-            android:id="@+id/match_step_1_toolbar"
-            layout="@layout/toolbar_with_back_arrow" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_back_arrow" />
 
     <TextView
-        android:id="@+id/TVSelectFriends"
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/matching_step_1_app_bar"
-        android:layout_marginStart="18dp"
-        android:fontFamily="@font/source_sans_pro"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="@dimen/margin_24"
         android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginEnd="@dimen/margin_24"
         android:text="Select friends"
         android:textColor="@color/black"
         android:textSize="@dimen/text_24sp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_chooselist"
+        android:id="@+id/selected_friends_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_below="@id/TVSelectFriends"
-        android:layout_marginTop="@dimen/margin_15"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview"
+        android:layout_marginTop="@dimen/dimen_16" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_storelist"
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/selected_friends_recycler_view"
+        app:dividerColor="@color/gray" />
+
+    <com.todkars.shimmer.ShimmerRecyclerView
+        android:id="@+id/all_friends_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rv_chooselist"
+        android:layout_below="@id/selected_friends_recycler_view"
         android:layout_marginTop="@dimen/margin_5"
-        android:background="@drawable/upper_border" />
+        android:paddingBottom="@dimen/margin_100"
+        app:shimmer_recycler_item_count="5"
+        app:shimmer_recycler_layout="@layout/list_item_placeholder_general" />
 
     <Button
-        android:id="@+id/BtnNext"
-        android:layout_width="@dimen/margin_300"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_50"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/margin_24"
+        android:layout_marginRight="@dimen/margin_24"
         android:layout_marginBottom="@dimen/margin_30"
         android:background="@drawable/btn_shape"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
         android:text="Next"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_20"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:padding="@dimen/margin_20"
+        android:text="It seems like you don't have any friends yet.&#xA;Add friends and come back again!"
+        android:textColor="@color/black"
+        android:visibility="gone" />
 
 </RelativeLayout>

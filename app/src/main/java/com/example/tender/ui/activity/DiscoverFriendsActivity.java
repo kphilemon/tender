@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tender.R;
 import com.example.tender.model.User;
@@ -23,7 +24,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.todkars.shimmer.ShimmerRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class DiscoverFriendsActivity extends AppCompatActivity implements Recycl
         setupToolbar();
         users = new ArrayList<>();
 
-        ShimmerRecyclerView recyclerView = findViewById(R.id.discover_friends_recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.discover_friends_recycler_view);
         discoverFriendsAdapter = new DiscoverFriendsAdapter(this, users, this);
         recyclerView.setAdapter(discoverFriendsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(DiscoverFriendsActivity.this));
