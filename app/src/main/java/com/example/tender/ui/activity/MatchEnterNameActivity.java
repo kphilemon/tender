@@ -77,6 +77,12 @@ public class MatchEnterNameActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     private void parseExtras(ArrayList<UserWrapper> wrappers) {
         userIds = new ArrayList<>();
         displayNames = new HashMap<>();
