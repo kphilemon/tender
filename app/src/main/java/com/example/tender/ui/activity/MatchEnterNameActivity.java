@@ -1,90 +1,167 @@
 package com.example.tender.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
+import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.tender.R;
-import com.google.android.material.appbar.AppBarLayout;
+import com.example.tender.model.Match;
+import com.example.tender.model.User;
+import com.example.tender.model.UserWrapper;
+import com.example.tender.utils.appUtils.AppUtils;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.WriteBatch;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class MatchEnterNameActivity extends AppCompatActivity {
+    private List<String> userIds;
+    private HashMap<String, String> displayNames;
+    private HashMap<String, String> photoUrls;
 
+    private EditText nameInput;
+
+    private FirebaseFirestore db;
+    private FirebaseUser firebaseUser;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_enter_name);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            finish();
+            return;
+        }
+
+        parseExtras((ArrayList<UserWrapper>) extras.getSerializable("USERS"));
+        db = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
         setupToolbar();
 
-        Button button = findViewById(R.id.BtnStartSwiping);
-        EditText editText = findViewById(R.id.ETGroupname);
-        TextView textView = findViewById(R.id.TVgroupmember);
+        nameInput = findViewById(R.id.name_input);
+        TextView membersText = findViewById(R.id.members_text);
+        membersText.setText("with " + AppUtils.formatNames(displayNames, ""));
+        Button startButton = findViewById(R.id.start_button);
+        startButton.setOnClickListener(v -> createMatching());
+    }
 
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
-        ArrayList<String> groupmember = MatchSelectFriendsActivity.chooseusernameData;
-        String show = "with ";
-        for(int i = 0; i < groupmember.size();i++){
-            if (i == groupmember.size()-1){
-                show += groupmember.get(i);
-            }
-            else {
-                show += groupmember.get(i);
-                show += " and ";
-            }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        textView.setText(show);
+    }
 
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String groupname = editText.getText().toString();
-                Toast.makeText(MatchEnterNameActivity.this,"name: "+ groupname,Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MatchEnterNameActivity.this, SwipeActivity.class));
-            }
-        });
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
-//        ActionBar backActionBar = getSupportActionBar();
-//        if(backActionBar!= null){
-//            backActionBar.setDisplayHomeAsUpEnabled(true);
-//            backActionBar.setTitle(null);
-//        }
+    private void parseExtras(ArrayList<UserWrapper> wrappers) {
+        userIds = new ArrayList<>();
+        displayNames = new HashMap<>();
+        photoUrls = new HashMap<>();
 
+        for (UserWrapper wrapper : wrappers) {
+            userIds.add(wrapper.getId());
+            displayNames.put(wrapper.getId(), wrapper.getUser().getDisplayName());
+            photoUrls.put(wrapper.getId(), wrapper.getUser().getPhotoUrl());
+        }
+    }
+
+    private void createMatching() {
+        String name = nameInput.getText().toString().trim();
+        if (name.isEmpty()) {
+            AppUtils.toast(this, "Please enter a name");
+            return;
+        }
+
+        db.collection("users").document(firebaseUser.getUid())
+                .get()
+                .addOnSuccessListener(snapshot -> {
+                    if (snapshot.exists()) {
+                        User self = snapshot.toObject(User.class);
+                        assert self != null;
+
+                        userIds.add(firebaseUser.getUid());
+                        displayNames.put(firebaseUser.getUid(), self.getDisplayName());
+                        photoUrls.put(firebaseUser.getUid(), self.getPhotoUrl());
+                        Match match = new Match(name, Timestamp.now(), userIds, displayNames, photoUrls, new HashMap<>());
+
+                        db.collection("matches")
+                                .add(match)
+                                .addOnSuccessListener(docRef -> {
+                                    WriteBatch batch = db.batch();
+                                    for (String userId : userIds) {
+                                        DocumentReference user = db.collection("users").document(userId);
+                                        batch.update(user, "activeMatches", FieldValue.arrayUnion(docRef.getId()));
+                                    }
+
+                                    batch.commit()
+                                            .addOnSuccessListener(aVoid -> {
+                                                Intent intent = new Intent(MatchEnterNameActivity.this, SwipeActivity.class);
+                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                intent.putExtra("MATCH_ID", docRef.getId());
+                                                intent.putExtra("MATCH_NAME", match.getName());
+                                                intent.putExtra("MATCH_DISPLAY_NAMES", match.getDisplayNames());
+                                                startActivity(intent);
+                                                finish();
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                AppUtils.toast(MatchEnterNameActivity.this, "Failed create new matching.");
+                                                Log.w("TAG", "Failed create new matching.", e);
+                                            });
+
+                                })
+                                .addOnFailureListener(e -> {
+                                    AppUtils.toast(MatchEnterNameActivity.this, "Failed create new matching.");
+                                    Log.w("TAG", "Failed create new matching.", e);
+                                });
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    AppUtils.toast(MatchEnterNameActivity.this, "Failed create new matching.");
+                    Log.w("TAG", "Failed create new matching.", e);
+                });
     }
 
     private void setupToolbar() {
-        AppBarLayout toolbar = findViewById(R.id.match_step_2_toolbar);
-        SearchView searchView = toolbar.findViewById(R.id.search_view);
-        ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        backButtonImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
     }
-
-//    public boolean onOptionsItemSelected(MenuItem item){
-//        if(item.getItemId() == android.R.id.home){
-//            this.finish();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
 }
 

@@ -1,7 +1,9 @@
 package com.example.tender.model;
 
+import java.io.Serializable;
+
 // Utility wrapper class to do all sorts of stuffs
-public class UserWrapper {
+public class UserWrapper implements Serializable {
     private String id;
     private User user;
     private boolean isFriend;

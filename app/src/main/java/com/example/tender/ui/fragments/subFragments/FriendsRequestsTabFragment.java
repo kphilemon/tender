@@ -148,10 +148,18 @@ public class FriendsRequestsTabFragment extends Fragment implements RecyclerView
     }
 
     private void acceptFriendRequest(String uid) {
-        DocumentReference doc = db.collection("users").document(firebaseUser.getUid());
         WriteBatch batch = db.batch();
-        batch.update(doc, "friendRequests", FieldValue.arrayRemove(uid));
-        batch.update(doc, "friends", FieldValue.arrayUnion(uid));
+
+        // remove target from self friend requests list & add to friends list
+        DocumentReference self = db.collection("users").document(firebaseUser.getUid());
+        batch.update(self, "friendRequests", FieldValue.arrayRemove(uid));
+        batch.update(self, "friends", FieldValue.arrayUnion(uid));
+
+        // Do the same for the new friend
+        DocumentReference newFriend = db.collection("users").document(uid);
+        batch.update(newFriend, "friendRequests", FieldValue.arrayRemove(firebaseUser.getUid()));
+        batch.update(newFriend, "friends", FieldValue.arrayUnion(firebaseUser.getUid()));
+
         batch.commit()
                 .addOnSuccessListener(aVoid -> {
                     Log.d("TAG", "Successfully accept friend request " + uid);

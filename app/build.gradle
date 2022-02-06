@@ -59,6 +59,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.android.gms:play-services-auth:20.0.1'
 
+    // lottie
+    implementation 'com.airbnb.android:lottie:4.2.2'
+
     // tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -97,8 +97,39 @@
         <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/back_round.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/edit.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/samee/AndroidStudioProjects/tender/app/src/main/res/mipmap-anydpi-v26/edit_round.xml" value="0.15989583333333332" />
-        <entry key="app/src/main/res/layout/activity_match_results_pending.xml" value="0.1910979228486647" />
+        <entry key="app/src/main/res/drawable-v24/circle_image_button.xml" value="0.2175925925925926" />
+        <entry key="app/src/main/res/drawable-v24/upper_border.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/back_backspace_24.xml" value="0.184765625" />
+        <entry key="app/src/main/res/drawable/bg_image_placeholder.xml" value="0.24537037037037038" />
+        <entry key="app/src/main/res/drawable/circular_button.xml" value="0.184765625" />
+        <entry key="app/src/main/res/drawable/edit_text_border.xml" value="0.2175925925925926" />
+        <entry key="app/src/main/res/drawable/rounded_bg.xml" value="0.39444444444444443" />
+        <entry key="app/src/main/res/drawable/switch_button.xml" value="0.184765625" />
+        <entry key="app/src/main/res/drawable/tab_background.xml" value="0.3388888888888889" />
+        <entry key="app/src/main/res/layout/activity_match_enter_name.xml" value="0.7933271547729379" />
+        <entry key="app/src/main/res/layout/activity_match_results_completed.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_match_results_pending.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_match_select_friends.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.9087093389296957" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.3132678132678133" />
+        <entry key="app/src/main/res/layout/activity_swipe.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_user_preferences.xml" value="0.4014423076923077" />
         <entry key="app/src/main/res/layout/com_swipe_card_item.xml" value="0.23632993512511585" />
+        <entry key="app/src/main/res/layout/fragment_friends_all_tab.xml" value="0.3919202518363064" />
+        <entry key="app/src/main/res/layout/fragment_main_matches.xml" value="0.43455497382198954" />
+        <entry key="app/src/main/res/layout/fragment_matches_completed_tab.xml" value="0.3919202518363064" />
+        <entry key="app/src/main/res/layout/item_swipe_card.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_item_active_match.xml" value="0.32550869498528945" />
+        <entry key="app/src/main/res/layout/list_item_match.xml" value="0.2485089463220676" />
+        <entry key="app/src/main/res/layout/list_item_placeholder_general.xml" value="0.39950372208436724" />
+        <entry key="app/src/main/res/layout/list_item_row_general.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_item_selected_friends.xml" value="0.245635398955854" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/back.xml" value="0.184765625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/back_round.xml" value="0.184765625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/edit.xml" value="0.184765625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/edit_round.xml" value="0.184765625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.184765625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.184765625" />
       </map>
     </option>
   </component>

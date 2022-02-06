@@ -21,7 +21,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/discover_friends_app_bar">
 
-        <com.todkars.shimmer.ShimmerRecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/discover_friends_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

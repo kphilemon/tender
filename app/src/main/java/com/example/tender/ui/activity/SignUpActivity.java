@@ -100,6 +100,13 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        firebaseAuth.signOut();
+        googleSignInClient.signOut();
+        navigateTo(SplashActivity.class);
+    }
 
     private void createUserProfile() {
         if (!validateUsername()) {
@@ -117,6 +124,8 @@ public class SignUpActivity extends AppCompatActivity {
                 firebaseUser.getDisplayName(),
                 "",
                 firebaseUser.getPhotoUrl().toString(),
+                Collections.emptyList(),
+                Collections.emptyList(),
                 Collections.emptyList(),
                 Collections.emptyList(),
                 false,

@@ -1,159 +1,202 @@
 package com.example.tender.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.SearchView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.tender.R;
-import com.example.tender.utils.adapter.recyclerAdapter.ChooseListAdapter;
-import com.example.tender.utils.adapter.recyclerAdapter.StoreListAdapter;
-import com.google.android.material.appbar.AppBarLayout;
+import com.example.tender.model.User;
+import com.example.tender.model.UserWrapper;
+import com.example.tender.ui.RecyclerViewInterface;
+import com.example.tender.utils.adapter.recyclerAdapter.FriendsListAdapter;
+import com.example.tender.utils.adapter.recyclerAdapter.SelectedFriendsAdapter;
+import com.example.tender.utils.appUtils.AppUtils;
+import com.google.android.material.divider.MaterialDivider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FieldPath;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.todkars.shimmer.ShimmerRecyclerView;
 
 import java.util.ArrayList;
 
-public class MatchSelectFriendsActivity extends AppCompatActivity implements StoreListAdapter.OnItemClickListener {
+public class MatchSelectFriendsActivity extends AppCompatActivity {
+    private ArrayList<UserWrapper> allFriends;
+    private ShimmerRecyclerView allFriendsRecyclerView;
+    private FriendsListAdapter allFriendsAdapter;
 
-    private RecyclerView rv_storelist;
-    private StoreListAdapter rv_storelistAdapter = null;
+    private ArrayList<UserWrapper> selectedFriends;
+    private RecyclerView selectedFriendsRecyclerView;
+    private SelectedFriendsAdapter selectedFriendsAdapter;
 
-    private RecyclerView rv_chooselist;
-    private ChooseListAdapter chooseListAdapter = null;
+    private Button nextButton;
+    private MaterialDivider divider;
+    private TextView emptyView;
 
-    public static ArrayList<String> usernameData = null;
-    public static ArrayList<String> usersignData = null;
-    public static ArrayList imageDatas = null;
-
-    public static ArrayList<String> chooseusernameData = null;
-    public static ArrayList chooseimageDatas = null;
-    public static ArrayList<String> chooseusersignData = null;
-
-    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MatchSelectFriendsActivity.this);
-    LinearLayoutManager linearLayoutManager_choose = new LinearLayoutManager(MatchSelectFriendsActivity.this, RecyclerView.HORIZONTAL, false);
+    private FirebaseFirestore db;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_select_friends);
 
+        db = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
         setupToolbar();
-        readuserData();
 
-        rv_storelist = findViewById(R.id.rv_storelist);
-        rv_storelist.setLayoutManager(linearLayoutManager);
-
-        rv_storelistAdapter = new StoreListAdapter(this, usernameData, usersignData, imageDatas);
-        rv_storelistAdapter.setOnItemClickListener(this);
-        rv_storelist.setAdapter(rv_storelistAdapter);
-        rv_storelist.setItemAnimator(new DefaultItemAnimator());
-
-        rv_chooselist = findViewById(R.id.rv_chooselist);
-        rv_chooselist.setLayoutManager(linearLayoutManager_choose);
-
-        chooseListAdapter = new ChooseListAdapter(this, chooseusernameData, chooseusersignData, chooseimageDatas);
-        chooseListAdapter.setOnItemClickListener_choose(this::onClick_choose);
-        rv_chooselist.setAdapter(chooseListAdapter);
-        rv_chooselist.setItemAnimator(new DefaultItemAnimator());
-
-//        ActionBar backActionBar = getSupportActionBar();
-//        if(backActionBar!= null){
-//            backActionBar.setDisplayHomeAsUpEnabled(true);
-//            backActionBar.setTitle(null);
-//        }
-
-        Button BtnNext = findViewById(R.id.BtnNext);
-        BtnNext.setOnClickListener(new View.OnClickListener() {
+        allFriends = new ArrayList<>();
+        allFriendsRecyclerView = findViewById(R.id.all_friends_recycler_view);
+        allFriendsAdapter = new FriendsListAdapter(this, allFriends, new RecyclerViewInterface() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MatchSelectFriendsActivity.this, MatchEnterNameActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
+            public void onItemClick(int position) {
+                selectFriend(position);
+            }
+
+            @Override
+            public void onItemLongClick(int position) {
             }
         });
-    }
+        allFriendsRecyclerView.setAdapter(allFriendsAdapter);
+        allFriendsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        allFriendsRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-    private void readuserData() {
-        usernameData = new ArrayList<String>();
-        usernameData.add("Ironman");
-        usernameData.add("Hulk");
-        usernameData.add("Lee");
-        usernameData.add("Bobb");
-        usernameData.add("fafat");
-        usernameData.add("thhh");
-        usernameData.add("asdf");
-
-
-        usersignData = new ArrayList<String>();
-        usersignData.add("I love u 3000");
-        usersignData.add("Strongest avenger");
-        usersignData.add("asdfsadf");
-        usersignData.add("iiugi");
-        usersignData.add("vbqebfviq");
-        usersignData.add("asfasdf");
-        usersignData.add("sdfg");
-
-
-        imageDatas = new ArrayList();
-        imageDatas.add(R.drawable.ic_launcher_background);
-        imageDatas.add(R.drawable.ic_launcher_background);
-        imageDatas.add(R.drawable.ic_launcher_background);
-        imageDatas.add(R.drawable.ic_launcher_background);
-        imageDatas.add(R.drawable.ic_launcher_background);
-        imageDatas.add(R.drawable.ic_launcher_background);
-        imageDatas.add(R.drawable.ic_launcher_background);
-
-
-        chooseimageDatas = new ArrayList();
-        chooseusernameData = new ArrayList<String>();
-        chooseusersignData = new ArrayList<String>();
-
-    }
-
-    private void setupToolbar() {
-        AppBarLayout toolbar = findViewById(R.id.match_step_1_toolbar);
-        SearchView searchView = toolbar.findViewById(R.id.search_view);
-        ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
-
-        backButtonImage.setOnClickListener(new View.OnClickListener() {
+        selectedFriends = new ArrayList<>();
+        selectedFriendsRecyclerView = findViewById(R.id.selected_friends_recycler_view);
+        selectedFriendsAdapter = new SelectedFriendsAdapter(this, selectedFriends, new RecyclerViewInterface() {
             @Override
-            public void onClick(View v) {
-                onBackPressed();
+            public void onItemClick(int position) {
+                unselectFriend(position);
+            }
+
+            @Override
+            public void onItemLongClick(int position) {
             }
         });
+        selectedFriendsRecyclerView.setAdapter(selectedFriendsAdapter);
+        selectedFriendsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        selectedFriendsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        nextButton = findViewById(R.id.next_button);
+        nextButton.setOnClickListener(v -> navigateNext());
+        divider = findViewById(R.id.divider);
+        emptyView = findViewById(R.id.empty_view);
+
+        loadAllFriends();
     }
 
     @Override
-    public void onClick(View parent, int position) {
-        //Toast.makeText(this, "长压了第" + (position + 1) + "项", Toast.LENGTH_SHORT).show();
-        chooseusernameData.add(usernameData.get(position));
-        chooseimageDatas.add(imageDatas.get(position));
-        chooseusersignData.add(usersignData.get(position));
-        usernameData.remove(usernameData.get(position));
-        usersignData.remove(usersignData.get(position));
-        imageDatas.remove(imageDatas.get(position));
-        chooseListAdapter.notifyDataSetChanged();
-        rv_storelistAdapter.notifyDataSetChanged();
-
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    public void onClick_choose(View parent, int position) {
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
-        //Toast.makeText(this, "长压了第" + (position + 1) + "项", Toast.LENGTH_SHORT).show();
-        usernameData.add(chooseusernameData.get(position));
-        imageDatas.add(chooseimageDatas.get(position));
-        usersignData.add(chooseusersignData.get(position));
+    private void selectFriend(int pos) {
+        UserWrapper user = allFriends.remove(pos);
+        selectedFriends.add(user);
+        updateUI();
+    }
 
-        chooseusernameData.remove(chooseusernameData.get(position));
-        chooseimageDatas.remove(chooseimageDatas.get(position));
-        chooseusersignData.remove(chooseusersignData.get(position));
+    @SuppressLint("NotifyDataSetChanged")
+    private void unselectFriend(int pos) {
+        UserWrapper user = selectedFriends.remove(pos);
+        allFriends.add(user);
+        updateUI();
+    }
 
-        chooseListAdapter.notifyDataSetChanged();
-        rv_storelistAdapter.notifyDataSetChanged();
+    private void loadAllFriends() {
+        allFriendsRecyclerView.showShimmer();
+        db.collection("users").document(firebaseUser.getUid())
+                .get()
+                .addOnSuccessListener(snapshot -> {
+                    if (snapshot.exists()) {
+                        User user = snapshot.toObject(User.class);
+                        assert user != null;
 
+                        if (user.getFriends() == null || user.getFriends().size() == 0) {
+                            allFriendsRecyclerView.hideShimmer();
+                            updateUI();
+                            return;
+                        }
+
+                        db.collection("users").whereIn(FieldPath.documentId(), user.getFriends())
+                                .get()
+                                .addOnSuccessListener(queryDocumentSnapshots -> {
+                                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                        User u = documentSnapshot.toObject(User.class);
+                                        allFriends.add(new UserWrapper(documentSnapshot.getId(), u));
+                                    }
+                                    allFriendsRecyclerView.hideShimmer();
+                                    updateUI();
+                                })
+                                .addOnFailureListener(e1 -> {
+                                    Log.w("TAG", "Load users from ids failed.", e1);
+                                    allFriendsRecyclerView.hideShimmer();
+                                    updateUI();
+                                });
+                    }
+                })
+                .addOnFailureListener(e1 -> {
+                    Log.w("TAG", "error loading user.", e1);
+                    allFriendsRecyclerView.hideShimmer();
+                    updateUI();
+                });
+    }
+
+    private void navigateNext() {
+        if (selectedFriends.size() == 0) {
+            AppUtils.toast(this, "Please select at least one friend to begin the matching with.");
+            return;
+        }
+
+        Intent intent = new Intent(this, MatchEnterNameActivity.class);
+        intent.putExtra("USERS", selectedFriends);
+        startActivity(intent);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void updateUI() {
+        divider.setVisibility(selectedFriends.size() > 0 ? View.VISIBLE : View.GONE);
+        emptyView.setVisibility(allFriends.size() == 0 && selectedFriends.size() == 0 ? View.VISIBLE : View.GONE);
+        allFriendsAdapter.notifyDataSetChanged();
+        selectedFriendsAdapter.notifyDataSetChanged();
+    }
+
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
     }
 }

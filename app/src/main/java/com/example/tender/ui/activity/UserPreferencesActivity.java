@@ -82,6 +82,11 @@ public class UserPreferencesActivity extends AppCompatActivity implements EditDi
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     public void onDisplayNameChanged(String displayName) {
