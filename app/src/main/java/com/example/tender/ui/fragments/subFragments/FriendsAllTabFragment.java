@@ -23,11 +23,13 @@ import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.WriteBatch;
 import com.todkars.shimmer.ShimmerRecyclerView;
 
 import java.util.ArrayList;
@@ -145,8 +147,19 @@ public class FriendsAllTabFragment extends Fragment implements RecyclerViewInter
     }
 
     private void unfriend(String uid) {
-        db.collection("users").document(firebaseUser.getUid())
-                .update("friends", FieldValue.arrayRemove(uid))
+        WriteBatch batch = db.batch();
+
+        // remove target from self friends list
+        DocumentReference self = db.collection("users").document(firebaseUser.getUid());
+        batch.update(self, "friendRequests", FieldValue.arrayRemove(uid));
+        batch.update(self, "friends", FieldValue.arrayRemove(uid));
+
+        // Do the same for the old friend
+        DocumentReference oldFriend = db.collection("users").document(uid);
+        batch.update(oldFriend, "friendRequests", FieldValue.arrayRemove(firebaseUser.getUid()));
+        batch.update(oldFriend, "friends", FieldValue.arrayRemove(firebaseUser.getUid()));
+
+        batch.commit()
                 .addOnSuccessListener(aVoid -> {
                     Log.d("TAG", "Successfully unfriend " + uid);
                 })
