@@ -10,6 +10,7 @@ public class Match {
     private Timestamp timestamp;
     private List<String> userIds;
     private HashMap<String, String> displayNames;
+    private HashMap<String, String> photoUrls;
 
     // map user id to list of food ids
     private HashMap<String, List<String>> swipes;
@@ -18,11 +19,12 @@ public class Match {
 
     }
 
-    public Match(String name, Timestamp timestamp, List<String> userIds, HashMap<String, String> displayNames, HashMap<String, List<String>> swipes) {
+    public Match(String name, Timestamp timestamp, List<String> userIds, HashMap<String, String> displayNames, HashMap<String, String> photoUrls, HashMap<String, List<String>> swipes) {
         this.name = name;
         this.timestamp = timestamp;
         this.userIds = userIds;
         this.displayNames = displayNames;
+        this.photoUrls = photoUrls;
         this.swipes = swipes;
     }
 
@@ -64,5 +66,13 @@ public class Match {
 
     public void setDisplayNames(HashMap<String, String> displayNames) {
         this.displayNames = displayNames;
+    }
+
+    public HashMap<String, String> getPhotoUrls() {
+        return photoUrls;
+    }
+
+    public void setPhotoUrls(HashMap<String, String> photoUrls) {
+        this.photoUrls = photoUrls;
     }
 }

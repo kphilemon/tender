@@ -182,11 +182,15 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
                 .addOnSuccessListener(aVoid -> {
                     Log.d("TAG", "Successfully uploaded swipes");
                     Intent intent = new Intent(SwipeActivity.this, MatchResultsPendingActivity.class);
+                    intent.putExtra("MATCH_ID", matchId);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
                 })
-                .addOnFailureListener(e -> Log.w("TAG", "Error uploading swipes ", e));
+                .addOnFailureListener(e -> {
+                    Log.w("TAG", "Error uploading swipes", e);
+                    AppUtils.toast(SwipeActivity.this, "Error uploading swipes");
+                });
         ;
     }
 

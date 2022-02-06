@@ -10,79 +10,81 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_tender"
+        android:alpha="0.1"
         android:scaleType="centerCrop"
-        android:alpha="0.1"/>
+        android:src="@drawable/bg_tender" />
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/match_result_completed_app_bar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <include
-            android:id="@+id/match_result_completed_app_toolbar"
-            layout="@layout/toolbar_with_back_arrow" />
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_back_arrow" />
+
+    <TextView
+        android:id="@+id/name_with_members"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_5"
+        android:layout_marginEnd="@dimen/margin_24"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/match_result_completed_app_bar"
+        android:layout_height="match_parent"
+        android:layout_below="@id/name_with_members"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/swiping_candidatesTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_24"
-            android:layout_marginEnd="@dimen/margin_24"
-            android:layout_marginTop="@dimen/margin_24"
-            android:fontFamily="@font/source_sans_pro_bold"
-            android:text="Lunch with Spider-Man and Ironman"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <FrameLayout
-            android:id="@+id/swipe_item_result"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/margin_15"
-            android:layout_weight="1"
-            android:elevation="@dimen/margin_10"
-            android:padding="@dimen/margin_20"
-            android:translationZ="@dimen/margin_10" />
+            android:layout_margin="@dimen/margin_50"
+            app:cardCornerRadius="20dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/most_swipesTV"
+            android:id="@+id/most_swipe_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_30"
-            android:maxLines="2"
             android:layout_marginStart="@dimen/margin_24"
+            android:layout_marginTop="@dimen/margin_30"
             android:layout_marginEnd="@dimen/margin_24"
+            android:layout_marginBottom="@dimen/margin_60"
             android:fontFamily="@font/source_sans_pro"
-            android:text="KFC got the most swipes !"
+            android:maxLines="2"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
+
         <Button
-            android:id="@+id/mark_as_completed_btn"
-            android:layout_width="@dimen/margin_300"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:id="@+id/mark_as_completed_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_50"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_24"
+            android:layout_marginRight="@dimen/margin_24"
             android:layout_marginBottom="@dimen/margin_30"
             android:background="@drawable/rounded_bg_white"
             android:fontFamily="@font/source_sans_pro"
-            android:letterSpacing="0.02"
+            android:gravity="center"
             android:text="Mark as completed"
             android:textAllCaps="false"
             android:textColor="@color/darkPink"
-            android:textSize="@dimen/text_18sp"
-            android:translationZ="@dimen/margin_10" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 </RelativeLayout>

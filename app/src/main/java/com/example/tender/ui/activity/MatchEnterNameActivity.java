@@ -34,6 +34,7 @@ import java.util.List;
 public class MatchEnterNameActivity extends AppCompatActivity {
     private List<String> userIds;
     private HashMap<String, String> displayNames;
+    private HashMap<String, String> photoUrls;
 
     private EditText nameInput;
 
@@ -79,10 +80,12 @@ public class MatchEnterNameActivity extends AppCompatActivity {
     private void parseExtras(ArrayList<UserWrapper> wrappers) {
         userIds = new ArrayList<>();
         displayNames = new HashMap<>();
+        photoUrls = new HashMap<>();
 
         for (UserWrapper wrapper : wrappers) {
             userIds.add(wrapper.getId());
             displayNames.put(wrapper.getId(), wrapper.getUser().getDisplayName());
+            photoUrls.put(wrapper.getId(), wrapper.getUser().getPhotoUrl());
         }
     }
 
@@ -102,7 +105,8 @@ public class MatchEnterNameActivity extends AppCompatActivity {
 
                         userIds.add(firebaseUser.getUid());
                         displayNames.put(firebaseUser.getUid(), self.getDisplayName());
-                        Match match = new Match(name, Timestamp.now(), userIds, displayNames, new HashMap<>());
+                        photoUrls.put(firebaseUser.getUid(), self.getPhotoUrl());
+                        Match match = new Match(name, Timestamp.now(), userIds, displayNames, photoUrls, new HashMap<>());
 
                         db.collection("matches")
                                 .add(match)

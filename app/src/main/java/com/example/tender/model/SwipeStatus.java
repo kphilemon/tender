@@ -1,33 +1,30 @@
 package com.example.tender.model;
 
-import androidx.annotation.Nullable;
-
 public class SwipeStatus {
-
-    private String image;
-    private String name;
+    private String displayName;
     private boolean status;
+    private String photoUrl;
 
-    public SwipeStatus(@Nullable String image, String name, boolean status) {
-        this.image = image;
-        this.name = name;
+    public SwipeStatus(String displayName, boolean status, String photoUrl) {
+        this.displayName = displayName;
         this.status = status;
+        this.photoUrl = photoUrl;
     }
 
-    public String getImage() {
-        return image;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
-    public String getName() {
-        return name;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public boolean getStatus() {
