@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.tender.R;
 import com.example.tender.model.SwipeStatus;
-import com.example.tender.model.User;
-import com.example.tender.ui.RecyclerViewInterface;
 
 import java.util.ArrayList;
 
@@ -30,8 +28,8 @@ public class SwipePendingAdapter extends RecyclerView.Adapter<SwipePendingAdapte
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
-            mainTv = itemView.findViewById(R.id.main_text_tv);
-            subtitleTv = itemView.findViewById(R.id.subtitle_text_tv);
+            mainTv = itemView.findViewById(R.id.title_text);
+            subtitleTv = itemView.findViewById(R.id.subtitle_text);
         }
     }
 

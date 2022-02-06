@@ -26,10 +26,8 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainMatchesFragment extends Fragment {
 
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    MatchesSubFragmentAdapter matchesSubFragmentAdapter;
-    Button fab;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
 
     public MainMatchesFragment() {
         // Required empty public constructor
@@ -50,20 +48,26 @@ public class MainMatchesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setupToolBar(view);
-        clickFAB(view);
+        setupToolbar(view);
+
+        Button fab = view.findViewById(R.id.frag_matches_go_btn);
+        fab.setOnClickListener(v -> goToDiscoverFriends());
 
         tabLayout = view.findViewById(R.id.frag_matches_tab_layout);
         viewPager2 = view.findViewById(R.id.frag_matches_view_pager);
 
-        FragmentManager fm  = getActivity().getSupportFragmentManager();
-        matchesSubFragmentAdapter = new MatchesSubFragmentAdapter(fm, getLifecycle());
-        viewPager2.setAdapter(matchesSubFragmentAdapter);
+        FragmentManager fm = getParentFragmentManager();
+        MatchesSubFragmentAdapter adapter = new MatchesSubFragmentAdapter(fm, getLifecycle());
+        viewPager2.setAdapter(adapter);
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
 
-        String active_number = "(2)"; // Change dynamically
-        tabLayout.addTab(tabLayout.newTab().setText("Active " + active_number));
+        tabLayout.addTab(tabLayout.newTab().setText("Active"));
         tabLayout.addTab(tabLayout.newTab().setText("Completed"));
-
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
@@ -73,25 +77,15 @@ public class MainMatchesFragment extends Fragment {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
-
-        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-               tabLayout.selectTab(tabLayout.getTabAt(position));
-            }
-        });
-
     }
 
-    private void setupToolBar(View view) {
+    private void setupToolbar(View view) {
         AppBarLayout toolbar = view.findViewById(R.id.frag_matches_toolbar);
 
         TextView title = toolbar.findViewById(R.id.toolbarTitle);
@@ -100,32 +94,14 @@ public class MainMatchesFragment extends Fragment {
         ImageView userIcon = toolbar.findViewById(R.id.user_icon);
         userIcon.setVisibility(View.VISIBLE);
 
-        userIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //AppUtils.toast(requireContext(), "User icon clicked");
-                Intent intent = new Intent(requireContext(), UserPreferencesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-    }
-
-    private void clickFAB(View view) {
-        fab = view.findViewById(R.id.frag_matches_go_btn);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToDiscoverFriends();
-            }
+        userIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), UserPreferencesActivity.class);
+            startActivity(intent);
         });
     }
 
-    /** Called when the user taps the Send button */
     public void goToDiscoverFriends() {
         Intent intent = new Intent(requireContext(), MatchSelectFriendsActivity.class);
         startActivity(intent);
     }
-
-
 }

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.tender.R;
 import com.example.tender.model.ActiveMatches;
-import com.example.tender.ui.fragments.subFragments.MatchesActiveTabFragment;
 import com.google.android.material.appbar.AppBarLayout;
 
 public class MatchResultsCompletedActivity extends AppCompatActivity {
@@ -27,7 +26,7 @@ public class MatchResultsCompletedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_results_completed);
 
-        setupToolBar();
+        setupToolbar();
 
         completedBtn = findViewById(R.id.mark_as_completed_btn);
 
@@ -41,7 +40,7 @@ public class MatchResultsCompletedActivity extends AppCompatActivity {
         );
         ((TextView) findViewById(R.id.most_swipesTV)).setText(match.getMatchTitle()+" got the most swipes !");
         FrameLayout container = findViewById(R.id.swipe_item_result);
-        View v = getLayoutInflater().inflate(R.layout.com_swipe_card_item, container, false);
+        View v = getLayoutInflater().inflate(R.layout.item_swipe_card, container, false);
         v.findViewById(R.id.right_overlay).setVisibility(View.GONE);
         v.findViewById(R.id.left_overlay).setVisibility(View.GONE);
         v.findViewById(R.id.top_overlay).setVisibility(View.GONE);
@@ -64,7 +63,7 @@ public class MatchResultsCompletedActivity extends AppCompatActivity {
 
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.match_result_completed_app_toolbar);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
         backButtonImage.setOnClickListener(new View.OnClickListener() {

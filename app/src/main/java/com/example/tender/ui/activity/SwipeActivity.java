@@ -38,7 +38,7 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
 
-        setupToolBar();
+        setupToolbar();
 
         items = Arrays.asList(
                 createMatches("China", "Kyoto", "https://images.unsplash.com/photo-1493997181344-712f2f19d87a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600"),
@@ -126,7 +126,7 @@ public class SwipeActivity extends AppCompatActivity implements CardStackListene
         return b;
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.swipe_activity_toolbar);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
 

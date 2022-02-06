@@ -24,9 +24,8 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainFriendsFragment extends Fragment {
 
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    FriendsSubFragmentAdapter friendsSubFragmentAdapter;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
 
     public MainFriendsFragment() {
         // Required empty public constructor
@@ -47,36 +46,14 @@ public class MainFriendsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setupToolBar(view);
+        setupToolbar(view);
 
         tabLayout = view.findViewById(R.id.frag_friends_tab_layout);
         viewPager2 = view.findViewById(R.id.frag_friends_view_pager);
 
-        FragmentManager fm  = getActivity().getSupportFragmentManager();
-        friendsSubFragmentAdapter = new FriendsSubFragmentAdapter(fm, getLifecycle());
-        viewPager2.setAdapter(friendsSubFragmentAdapter);
-
-        tabLayout.addTab(tabLayout.newTab().setText("All" ));
-        tabLayout.addTab(tabLayout.newTab().setText("Requests"));
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager2.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
+        FragmentManager fm = getParentFragmentManager();
+        FriendsSubFragmentAdapter adpater = new FriendsSubFragmentAdapter(fm, getLifecycle());
+        viewPager2.setAdapter(adpater);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
@@ -84,9 +61,25 @@ public class MainFriendsFragment extends Fragment {
             }
         });
 
+        tabLayout.addTab(tabLayout.newTab().setText("All"));
+        tabLayout.addTab(tabLayout.newTab().setText("Requests"));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager2.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
     }
 
-    private void setupToolBar(View view) {
+    private void setupToolbar(View view) {
         AppBarLayout toolbar = view.findViewById(R.id.frag_friends_toolbar);
 
         TextView title = toolbar.findViewById(R.id.toolbarTitle);
@@ -97,22 +90,14 @@ public class MainFriendsFragment extends Fragment {
         userIcon.setVisibility(View.VISIBLE);
         searchIcon.setVisibility(View.VISIBLE);
 
-        userIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //AppUtils.toast(requireContext(), "User icon clicked");
-                Intent intent = new Intent(requireContext(), UserPreferencesActivity.class);
-                startActivity(intent);
-            }
+        userIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), UserPreferencesActivity.class);
+            startActivity(intent);
         });
 
-        searchIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(requireContext(), DiscoverFriendsActivity.class);
-                startActivity(intent);
-            }
+        searchIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), DiscoverFriendsActivity.class);
+            startActivity(intent);
         });
-
     }
 }

@@ -26,7 +26,7 @@ public class MatchEnterNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_enter_name);
 
-        setupToolBar();
+        setupToolbar();
 
         Button button = findViewById(R.id.BtnStartSwiping);
         EditText editText = findViewById(R.id.ETGroupname);
@@ -65,9 +65,9 @@ public class MatchEnterNameActivity extends AppCompatActivity {
 
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.match_step_2_toolbar);
-        SearchView searchView = toolbar.findViewById(R.id.userNameSearchView);
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
 
         backButtonImage.setOnClickListener(new View.OnClickListener() {

@@ -25,7 +25,7 @@ public class CardsSwipeAdapter extends RecyclerView.Adapter<CardsSwipeAdapter.Vi
     @Override
     public CardsSwipeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.com_swipe_card_item, parent, false);
+                .inflate(R.layout.item_swipe_card, parent, false);
         return new ViewHolder(itemView);
     }
 

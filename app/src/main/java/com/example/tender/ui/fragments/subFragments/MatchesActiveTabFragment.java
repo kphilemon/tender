@@ -16,7 +16,6 @@ import com.example.tender.R;
 import com.example.tender.model.ActiveMatches;
 import com.example.tender.model.User;
 import com.example.tender.utils.adapter.recyclerAdapter.MatchesActiveRvAdapter;
-import com.todkars.shimmer.ShimmerAdapter;
 import com.todkars.shimmer.ShimmerRecyclerView;
 
 import java.util.ArrayList;

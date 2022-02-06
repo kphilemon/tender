@@ -41,7 +41,7 @@ public class MatchSelectFriendsActivity extends AppCompatActivity implements Sto
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_select_friends);
 
-        setupToolBar();
+        setupToolbar();
         readuserData();
 
         rv_storelist = findViewById(R.id.rv_storelist);
@@ -114,9 +114,9 @@ public class MatchSelectFriendsActivity extends AppCompatActivity implements Sto
 
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.match_step_1_toolbar);
-        SearchView searchView = toolbar.findViewById(R.id.userNameSearchView);
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
 
         backButtonImage.setOnClickListener(new View.OnClickListener() {

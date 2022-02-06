@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="@dimen/dimen_16">
 
     <com.google.android.material.imageview.ShapeableImageView
-        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
         android:id="@+id/image"
-        android:layout_width="@dimen/margin_80"
-        android:layout_height="@dimen/margin_80"
-        android:padding="@dimen/margin_5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
     <TextView
-        android:id="@+id/main_text_tv"
+        android:id="@+id/title_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro"
+        android:maxLines="1"
+        android:singleLine="true"
         android:text="@string/start_matching"
         android:textColor="@color/black"
         android:textSize="@dimen/text_15sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/subtitle_text_tv"
+        android:id="@+id/subtitle_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro"
+        android:maxLines="1"
+        android:singleLine="true"
         android:text="@string/start_matching"
         android:textColor="@color/black"
         android:textSize="@dimen/text_15sp"
@@ -39,13 +43,12 @@
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/margin_12"
-        android:layout_marginEnd="@dimen/margin_12"
+        android:layout_marginStart="16dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="main_text_tv, subtitle_text_tv"
+        app:constraint_referenced_ids="title_text, subtitle_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toTopOf="parent" />
 
 

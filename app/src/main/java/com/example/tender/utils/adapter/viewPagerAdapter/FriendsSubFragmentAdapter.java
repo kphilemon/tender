@@ -8,8 +8,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.tender.ui.fragments.subFragments.FriendsAllTabFragment;
 import com.example.tender.ui.fragments.subFragments.FriendsRequestsTabFragment;
-import com.example.tender.ui.fragments.subFragments.MatchesActiveTabFragment;
-import com.example.tender.ui.fragments.subFragments.MatchesCompletedTabFragment;
 
 public class FriendsSubFragmentAdapter extends FragmentStateAdapter {
 
@@ -20,7 +18,6 @@ public class FriendsSubFragmentAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-
         switch (position) {
             case 1:
                 return new FriendsRequestsTabFragment();
