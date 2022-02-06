@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,16 +7,23 @@
     tools:context=".ui.fragments.subFragments.FriendsAllTabFragment">
 
     <com.todkars.shimmer.ShimmerRecyclerView
-        android:id="@+id/friends_all_tab_recyclerView"
+        android:id="@+id/friends_all_tab_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/margin_8"
-        android:layout_marginEnd="@dimen/margin_8"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/margin_5"
-        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
+        app:shimmer_recycler_item_count="5"
+        app:shimmer_recycler_layout="@layout/list_item_placeholder_general" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/friends_all_tab_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_20"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:padding="@dimen/margin_20"
+        android:text="It seems like you don't have any friends yet.&#xA;Discover friends by clicking on the search icon above!"
+        android:textColor="@color/black"
+        android:visibility="gone" />
+
+</FrameLayout>

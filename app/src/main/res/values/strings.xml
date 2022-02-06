@@ -1,12 +1,17 @@
 <resources>
+    <string name="web_client_id">882348105487-k7hso6pgv8oejamlqn3ce2dts9do8903.apps.googleusercontent.com</string>
     <string name="app_name">Tender</string>
     <string name="continue_with_google">Continue with Google</string>
 
     <string name="welcome">Welcome</string>
     <string name="sign_up_text1">To begin, pick your username. Your friends will use this username to find and add you.</string>
     <string name="sign_up_text2">Pick wisely because once you get a name, you can’t change it.</string>
-    <string name="error_username_taken">Sorry, this username is taken. Try another.</string>
-    <string name="success_username_valid">Great name! It’s not taken, so it’s all yours.</string>
+    <string name="username_taken">Sorry, this username is taken. Try another.</string>
+    <string name="username_valid">Great name! It’s not taken, so it’s all yours.</string>
+    <string name="username_exceeded_char_limit">Username should be under 25 characters.</string>
+    <string name="username_invalid">Username should contain only numbers, lowercase letters, underscores and periods.</string>
+    <string name="username_too_short">Minimum 7 characters required.</string>
+    <string name="username_empty">Username cannot be empty.</string>
 
     <string name="matches">Matches</string>
     <string name="active">Active</string>
@@ -40,11 +45,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pick_wisely">Pick wisely because once you get a name, you cannot change it.</string>
     <string name="signup_title">To begin, pick your username. Your friends will use this username to find and add you.</string>
-    <string name="empty_field">Field cannot be empty</string>
-    <string name="minimum_seven_char">Minimum 7 characters required</string>
-    <string name="invalid_username">Invalid Username</string>
-    <string name="username_limit_25">Username should be under 25 characters</string>
-    <string name="valid_username">Great name! It\'s not taken, so it\'s all yours</string>
     <string name="completed_swiping">Completed swiping</string>
     <string name="pending">Pending</string>
 </resources>

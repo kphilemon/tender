@@ -29,20 +29,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!--    <include-->
-    <!--        android:id="@+id/frag_matches_toolbar"-->
-    <!--        layout="@layout/toolbar_with_actions" />-->
-
-    <!--    <com.google.android.material.tabs.TabLayout-->
-    <!--        android:id="@+id/frag_matches_tab_layout"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/frag_matches_toolbar"-->
-    <!--        app:tabBackground="@drawable/tab_background"-->
-    <!--        app:tabIndicator="@android:color/transparent"-->
-    <!--        app:tabIndicatorAnimationMode="elastic"-->
-    <!--        app:tabRippleColor="@null" />-->
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/frag_matches_view_pager"
         style="@style/MainCustomTabTextStyle"

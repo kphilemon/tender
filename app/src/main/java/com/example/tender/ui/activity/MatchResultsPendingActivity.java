@@ -32,7 +32,7 @@ public class MatchResultsPendingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_results_pending);
 
-        setupToolBar();
+        setupToolbar();
 
         pendingList = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class MatchResultsPendingActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> startActivity(newI), 5000);
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.match_result_pending_app_toolbar);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
         backButtonImage.setOnClickListener(new View.OnClickListener() {

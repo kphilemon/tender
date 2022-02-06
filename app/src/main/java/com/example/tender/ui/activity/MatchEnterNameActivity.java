@@ -2,7 +2,6 @@ package com.example.tender.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tender.R;
@@ -21,14 +19,14 @@ import com.google.android.material.appbar.AppBarLayout;
 import java.util.ArrayList;
 
 
-public class Matching_step2 extends AppCompatActivity {
+public class MatchEnterNameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.matching_step2);
+        setContentView(R.layout.activity_match_enter_name);
 
-        setupToolBar();
+        setupToolbar();
 
         Button button = findViewById(R.id.BtnStartSwiping);
         EditText editText = findViewById(R.id.ETGroupname);
@@ -37,7 +35,7 @@ public class Matching_step2 extends AppCompatActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        ArrayList<String> groupmember = Matching_step1.chooseusernameData;
+        ArrayList<String> groupmember = MatchSelectFriendsActivity.chooseusernameData;
         String show = "with ";
         for(int i = 0; i < groupmember.size();i++){
             if (i == groupmember.size()-1){
@@ -54,8 +52,8 @@ public class Matching_step2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String groupname = editText.getText().toString();
-                Toast.makeText(Matching_step2.this,"name: "+ groupname,Toast.LENGTH_LONG).show();
-                startActivity(new Intent(Matching_step2.this, SwipeActivity.class));
+                Toast.makeText(MatchEnterNameActivity.this,"name: "+ groupname,Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MatchEnterNameActivity.this, SwipeActivity.class));
             }
         });
 
@@ -67,9 +65,9 @@ public class Matching_step2 extends AppCompatActivity {
 
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.match_step_2_toolbar);
-        SearchView searchView = toolbar.findViewById(R.id.userNameSearchView);
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
 
         backButtonImage.setOnClickListener(new View.OnClickListener() {

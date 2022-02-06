@@ -18,6 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/margin_5"
         app:shimmer_recycler_item_count="8"
-        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
+        app:shimmer_recycler_layout="@layout/list_item_placeholder_general" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

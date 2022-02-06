@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tender.R;
-import com.example.tender.ui.activity.Matching_step1;
+import com.example.tender.ui.activity.MatchSelectFriendsActivity;
 
 import java.util.ArrayList;
 
@@ -51,9 +51,9 @@ public class StoreListAdapter extends RecyclerView.Adapter<StoreListAdapter.Line
 
     @Override
     public void onBindViewHolder(@NonNull LinearViewHolder holder, int position) {
-        holder.image_info_photo.setImageResource((Integer) Matching_step1.imageDatas.get(position));
-        holder.text_info_name.setText(Matching_step1.usernameData.get(position));
-        holder.text_info_sign.setText(Matching_step1.usersignData.get(position));
+        holder.image_info_photo.setImageResource((Integer) MatchSelectFriendsActivity.imageDatas.get(position));
+        holder.text_info_name.setText(MatchSelectFriendsActivity.usernameData.get(position));
+        holder.text_info_sign.setText(MatchSelectFriendsActivity.usersignData.get(position));
 
 
         if(null != mOnItemClickListener){

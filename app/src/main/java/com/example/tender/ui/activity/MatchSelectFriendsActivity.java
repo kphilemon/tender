@@ -17,7 +17,7 @@ import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 
-public class Matching_step1 extends AppCompatActivity implements StoreListAdapter.OnItemClickListener {
+public class MatchSelectFriendsActivity extends AppCompatActivity implements StoreListAdapter.OnItemClickListener {
 
     private RecyclerView rv_storelist;
     private StoreListAdapter rv_storelistAdapter = null;
@@ -33,15 +33,15 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
     public static ArrayList chooseimageDatas = null;
     public static ArrayList<String> chooseusersignData = null;
 
-    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Matching_step1.this);
-    LinearLayoutManager linearLayoutManager_choose = new LinearLayoutManager(Matching_step1.this, RecyclerView.HORIZONTAL, false);
+    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MatchSelectFriendsActivity.this);
+    LinearLayoutManager linearLayoutManager_choose = new LinearLayoutManager(MatchSelectFriendsActivity.this, RecyclerView.HORIZONTAL, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.matching_step1);
+        setContentView(R.layout.activity_match_select_friends);
 
-        setupToolBar();
+        setupToolbar();
         readuserData();
 
         rv_storelist = findViewById(R.id.rv_storelist);
@@ -70,7 +70,7 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
         BtnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Matching_step1.this, Matching_step2.class);
+                Intent intent = new Intent(MatchSelectFriendsActivity.this, MatchEnterNameActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
             }
@@ -114,9 +114,9 @@ public class Matching_step1 extends AppCompatActivity implements StoreListAdapte
 
     }
 
-    private void setupToolBar() {
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.match_step_1_toolbar);
-        SearchView searchView = toolbar.findViewById(R.id.userNameSearchView);
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
 
         backButtonImage.setOnClickListener(new View.OnClickListener() {

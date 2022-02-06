@@ -52,6 +52,6 @@
         android:layout_marginEnd="@dimen/dimen_24"
         android:layout_marginBottom="@dimen/dimen_16"
         app:shimmer_recycler_item_count="5"
-        app:shimmer_recycler_layout="@layout/placeholder_general_row_layout" />
+        app:shimmer_recycler_layout="@layout/list_item_placeholder_general" />
 
 </RelativeLayout>

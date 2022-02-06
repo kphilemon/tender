@@ -1,65 +1,140 @@
 package com.example.tender.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tender.R;
-import com.example.tender.model.AddFriend;
+import com.example.tender.model.User;
+import com.example.tender.model.UserWrapper;
 import com.example.tender.ui.RecyclerViewInterface;
-import com.example.tender.utils.adapter.recyclerAdapter.DiscoverNewFriendsAdapter;
+import com.example.tender.utils.adapter.recyclerAdapter.DiscoverFriendsAdapter;
 import com.example.tender.utils.appUtils.AppUtils;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.todkars.shimmer.ShimmerRecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DiscoverFriendsActivity extends AppCompatActivity implements RecyclerViewInterface {
 
-    private ShimmerRecyclerView recyclerView;
-    private SearchView searchView;
-    DiscoverNewFriendsAdapter discoverNewFriendsAdapter;
-    ArrayList<AddFriend> discoverFriendList;
+    private ArrayList<UserWrapper> users;
+    private DiscoverFriendsAdapter discoverFriendsAdapter;
+    private TextView emptyView;
+
+    private FirebaseFirestore db;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover_friends);
 
-        setupToolBar();
-        discoverFriendList = new ArrayList<AddFriend>();
+        db = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        recyclerView = findViewById(R.id.discover_friends_recyclerView);
-        setupDiscoverFriendsList();
-        //setAdapter();
+        setupToolbar();
+        users = new ArrayList<>();
+
+        ShimmerRecyclerView recyclerView = findViewById(R.id.discover_friends_recycler_view);
+        discoverFriendsAdapter = new DiscoverFriendsAdapter(this, users, this);
+        recyclerView.setAdapter(discoverFriendsAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(DiscoverFriendsActivity.this));
+        emptyView = findViewById(R.id.discover_friends_empty_view);
+        emptyView.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        UserWrapper target = users.get(position);
+        if (target.isFriend()) {
+            AppUtils.toast(DiscoverFriendsActivity.this, "You are already friends!");
+            return;
+        }
+        sendFriendRequest(target.getId());
+    }
+
+    @Override
+    public void onItemLongClick(int position) {
 
     }
 
-    private void setupToolBar() {
+    private void query(String s) {
+        users.clear();
+        if (s.length() == 0) {
+            updateUI(false);
+            return;
+        }
 
+        db.collection("users")
+                .whereGreaterThanOrEqualTo("username", s)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (queryDocumentSnapshots.getDocuments().size() == 0) {
+                        updateUI(true);
+                        return;
+                    }
+
+                    db.collection("users").document(firebaseUser.getUid())
+                            .get()
+                            .addOnCompleteListener(task -> {
+                                List<String> ownFriends = new ArrayList<>();
+                                if (task.isSuccessful()) {
+                                    User self = task.getResult().toObject(User.class);
+                                    if (self != null && self.getFriends().size() > 0) {
+                                        ownFriends.addAll(self.getFriends());
+                                    }
+                                }
+
+                                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                                    String uid = documentSnapshot.getId();
+                                    if (uid.equals(firebaseUser.getUid())) {
+                                        continue;
+                                    }
+
+                                    User u = documentSnapshot.toObject(User.class);
+                                    boolean isFriend = ownFriends.contains(uid);
+                                    users.add(new UserWrapper(uid, u, isFriend));
+                                }
+
+                                updateUI(users.size() == 0);
+                            });
+                })
+                .addOnFailureListener(e -> {
+                    Log.w("TAG", "Query usernames failed.", e);
+                    updateUI(false);
+                });
+    }
+
+    private void sendFriendRequest(String uid) {
+        db.collection("users").document(uid)
+                .update("friendRequests", FieldValue.arrayUnion(firebaseUser.getUid()))
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("TAG", "Successfully sent friend request " + uid);
+                    AppUtils.toast(DiscoverFriendsActivity.this, "Friend request sent");
+                })
+                .addOnFailureListener(e -> Log.w("TAG", "Error sending friend request " + uid, e));
+    }
+
+    private void setupToolbar() {
         AppBarLayout toolbar = findViewById(R.id.discover_friends_toolbar);
-        searchView = toolbar.findViewById(R.id.userNameSearchView);
-        searchView.setVisibility(View.VISIBLE);
-
         ImageView backButtonImage = toolbar.findViewById(R.id.back_arrow_icon);
+        backButtonImage.setOnClickListener(v -> onBackPressed());
 
-        backButtonImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-        /**
-         * Perform search filter
-         * but something weird happening to the
-         * list item of add friend list items
-         */
+        SearchView searchView = toolbar.findViewById(R.id.search_view);
+        searchView.setVisibility(View.VISIBLE);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -68,57 +143,15 @@ public class DiscoverFriendsActivity extends AppCompatActivity implements Recycl
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                discoverNewFriendsAdapter.getFilter().filter(newText);
+                query(newText.trim());
                 return false;
             }
         });
     }
 
-    // Dummy data
-    private void setupDiscoverFriendsList() {
-        discoverFriendList.add(new AddFriend("Spider-man",true));
-        discoverFriendList.add(new AddFriend("Spider-boy",false));
-        discoverFriendList.add(new AddFriend("Iron-man",false));
-        discoverFriendList.add(new AddFriend("Panther-man",false));
-        discoverFriendList.add(new AddFriend("Awesome-man",false));
-        discoverFriendList.add(new AddFriend("Unknown-man",false));
-        discoverFriendList.add(new AddFriend("123-man",true));
-        discoverFriendList.add(new AddFriend("456-man",false));
-        discoverFriendList.add(new AddFriend("789-man",false));
-        discoverFriendList.add(new AddFriend("Chick-man",true));
-        discoverFriendList.add(new AddFriend("Fillet-man",true));
-
-        setAdapter();
-
-    }
-
-    public void setAdapter() {
-        discoverNewFriendsAdapter = new DiscoverNewFriendsAdapter(this, discoverFriendList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DiscoverFriendsActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(discoverNewFriendsAdapter);
-    }
-
-    @Override
-    public void onItemClick(int position) {
-        /**
-         * Do something when user clicked on the
-         * add friend icon
-         */
-        AppUtils.toast(
-                DiscoverFriendsActivity.this,
-                discoverFriendList.get(position).getName() + " is added as friend"
-        );
-
-        discoverFriendList.remove(position);
-        discoverNewFriendsAdapter.notifyItemRemoved(position);
-
-    }
-
-    @Override
-    public void onItemLongClick(int position) {
-        /**
-         * Ignore this method for now
-         */
+    @SuppressLint("NotifyDataSetChanged")
+    private void updateUI(boolean showEmptyView) {
+        discoverFriendsAdapter.notifyDataSetChanged();
+        emptyView.setVisibility(showEmptyView ? View.VISIBLE : View.GONE);
     }
 }
