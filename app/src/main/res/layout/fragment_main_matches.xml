@@ -48,7 +48,7 @@
         android:background="@drawable/rounded_bg"
         android:fontFamily="@font/source_sans_pro"
         android:letterSpacing="0.02"
-        android:padding="@dimen/margin_10"
+        android:padding="@dimen/dimen_16"
         android:text="@string/start_matching"
         android:textColor="@color/white" />
 
