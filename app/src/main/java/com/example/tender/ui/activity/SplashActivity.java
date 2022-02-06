@@ -22,8 +22,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SplashActivity extends AppCompatActivity {
@@ -111,21 +109,20 @@ public class SplashActivity extends AppCompatActivity {
         AppUtils.toast(SplashActivity.this, user.getEmail());
 
         // user is signed in, check if user profile is completed
-        DocumentReference docRef = db.collection("users").document(user.getUid());
-        docRef.get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                DocumentSnapshot document = task.getResult();
-                if (document.exists()) {
-                    navigateTo(MainActivity.class);
-                } else {
-                    navigateTo(SignUpActivity.class);
-                }
-            } else {
-                Log.w("TAG", "User profile checking failed", task.getException());
-                AppUtils.toast(SplashActivity.this, "User profile checking failed");
-                showGoogleButton();
-            }
-        });
+        db.collection("users").document(user.getUid())
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        navigateTo(MainActivity.class);
+                    } else {
+                        navigateTo(SignUpActivity.class);
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Log.w("TAG", "User profile checking failed", e);
+                    AppUtils.toast(SplashActivity.this, "User profile checking failed");
+                    showGoogleButton();
+                });
     }
 
     private void signIn() {

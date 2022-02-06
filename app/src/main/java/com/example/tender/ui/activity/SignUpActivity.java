@@ -146,6 +146,12 @@ public class SignUpActivity extends AppCompatActivity {
                                 confirmButton.setEnabled(true);
                                 inputProgressBar.setVisibility(View.INVISIBLE);
                             });
+                })
+                .addOnFailureListener(e -> {
+                    AppUtils.toast(SignUpActivity.this, "Error checking username availability");
+                    Log.w("TAG", "Error checking username availability", e);
+                    confirmButton.setEnabled(true);
+                    inputProgressBar.setVisibility(View.INVISIBLE);
                 });
     }
 
