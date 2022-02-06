@@ -7,7 +7,7 @@
     tools:context=".ui.activity.UserPreferencesActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar1"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,30 +27,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <com.google.android.material.imageview.ShapeableImageView
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+        android:id="@+id/profile_image"
         android:layout_width="@dimen/margin_100"
         android:layout_height="@dimen/margin_100"
         android:layout_marginTop="@dimen/margin_10"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        android:src="@drawable/bg_tender"
+        app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar1"
-        app:srcCompat="@drawable/circle" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_10"
-        android:text="doctor_strange"
         android:letterSpacing="0.02"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="@dimen/text_24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
     <TextView
         android:id="@+id/textView"
@@ -58,11 +59,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24"
         android:layout_marginTop="12dp"
-        android:text="Profile"
-        android:textStyle="bold"
         android:letterSpacing="0.02"
+        android:text="Profile"
         android:textColor="@color/darkGray"
         android:textSize="@dimen/text_16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg_image" />
 
@@ -72,15 +73,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24"
         android:layout_marginTop="@dimen/margin_24"
-        android:text="Preferences"
-        android:textStyle="bold"
         android:letterSpacing="0.02"
+        android:text="Preferences"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_icon" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_5"
@@ -91,14 +92,14 @@
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="@dimen/text_16sp"
-        app:layout_constraintBottom_toTopOf="@+id/delete"
+        app:layout_constraintBottom_toTopOf="@+id/delete_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
 
 
     <Button
-        android:id="@+id/delete"
+        android:id="@+id/delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_30"
@@ -120,21 +121,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="56dp"
-        android:text="Display name"
         android:fontFamily="@font/source_sans_pro"
-        android:textStyle="bold"
+        android:text="Display name"
         android:textColor="@color/black"
         android:textSize="@dimen/text_14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
         app:layout_constraintTop_toBottomOf="@+id/bg_image" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/display_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Doctor Strange"
         android:layout_marginTop="@dimen/margin_5"
+        android:text=""
         android:textSize="@dimen/text_14sp"
         app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -147,7 +148,7 @@
         android:background="@drawable/rounded_bg"
         android:backgroundTint="@color/darkOrange"
         android:src="@drawable/ic_user"
-        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintBottom_toBottomOf="@+id/display_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -160,9 +161,8 @@
         android:maxLines="3"
         android:text="This will be appeared to the viewers of the public and does not change your username"
         android:textSize="@dimen/text_12sp"
-
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintStart_toStartOf="@+id/display_name"
+        app:layout_constraintTop_toBottomOf="@+id/display_name" />
 
     <ImageButton
         android:id="@+id/info_icon"
@@ -172,7 +172,7 @@
         android:background="@drawable/rounded_bg"
         android:backgroundTint="@color/darkOrange"
         android:src="@drawable/info"
-        app:layout_constraintBottom_toBottomOf="@+id/aboutyou"
+        app:layout_constraintBottom_toBottomOf="@+id/about_you"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -196,21 +196,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
-        android:text="About you"
         android:fontFamily="@font/source_sans_pro"
-        android:textStyle="bold"
+        android:text="About you"
         android:textColor="@color/black"
         android:textSize="@dimen/text_14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/info_icon"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/aboutyou"
+        android:id="@+id/about_you"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="@dimen/margin_5"
-        android:text="I am the sorcerer supreme"
+        android:text=""
         android:textSize="@dimen/text_14sp"
         app:layout_constraintStart_toEndOf="@+id/info_icon"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -221,51 +221,50 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:text="Notifications"
         android:fontFamily="@font/source_sans_pro"
-        android:textStyle="bold"
+        android:text="Notifications"
         android:textColor="@color/black"
         android:textSize="@dimen/text_14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/info_icon2"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <Switch
-        android:id="@+id/switch1"
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/notification_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:layout_marginEnd="@dimen/margin_24"
         android:checked="false"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:shadowColor="#FF512F"
         android:textColorHighlight="#FF512F"
-        android:theme="@style/SCBSwitch"
+        android:theme="@style/Switch"
         app:layout_constraintBottom_toBottomOf="@+id/info_icon2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/info_icon2"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Button
-        android:id="@+id/buttonShow"
+        android:id="@+id/edit_display_name_button"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="@dimen/margin_24"
         android:drawableStart="@drawable/ic_edit_pencil"
-        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintBottom_toBottomOf="@+id/display_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/buttonShow1"
+        android:id="@+id/edit_about_button"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="@dimen/margin_24"
         android:drawableStart="@drawable/ic_edit_pencil"
-        app:layout_constraintBottom_toBottomOf="@+id/aboutyou"
+        app:layout_constraintBottom_toBottomOf="@+id/about_you"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView6"
         tools:ignore="SpeakableTextPresentCheck" />
